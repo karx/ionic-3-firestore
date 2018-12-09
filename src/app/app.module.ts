@@ -27,9 +27,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
   imports: [
     BrowserModule,
     HttpClientModule,
-    AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyAZBaESnwAadnwOjsZAQhPnzw2YWoPbb-8'
-    }),
+    AgmCoreModule.forRoot(ENV.gmapsAPI),
     AngularFireModule.initializeApp(ENV.firebase),
     AngularFirestoreModule,
     IonicModule.forRoot(MyApp)
