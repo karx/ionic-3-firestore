@@ -1,3 +1,4 @@
+import { AuthProvider } from './../../providers/auth/auth';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Geolocation, Coordinates } from '@ionic-native/geolocation';
@@ -5,6 +6,7 @@ import { DeviceMotion } from '@ionic-native/device-motion';
 import { HiLocation } from '../../models/location';
 import { Device } from '@ionic-native/device';
 import { RiderlocationProvider } from '../../providers/riderlocation/riderlocation';
+import { User } from 'firebase';
 
 /**
  * Generated class for the BikerPage page.
@@ -27,7 +29,7 @@ export class BikerPage {
 
   public totalPath: HiLocation[] = [];
   public _currentLocn: HiLocation;
-
+  public _user: User;
   private _COLL: string = 'HiLocations';
 
   constructor(
@@ -36,14 +38,16 @@ export class BikerPage {
     private geolocation: Geolocation,
     private deviceMotion: DeviceMotion,
     private device: Device,
-    private riderLocationService: RiderlocationProvider
+    private riderLocationService: RiderlocationProvider,
+    private authService: AuthProvider
 
     ) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad BikerPage');
-
+    this._user = this.authService.getUser();
+    console.log(this._user);
     this.initMap();
   }
 

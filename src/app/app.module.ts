@@ -1,3 +1,4 @@
+import { LoginPage } from './../pages/login/login';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { ErrorHandler, NgModule } from '@angular/core';
@@ -17,12 +18,15 @@ import { ENV } from '../config/env';
 import { AngularFireModule} from '@angular/fire';
 import { RiderlocationProvider } from '../providers/riderlocation/riderlocation';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AuthProvider } from '../providers/auth/auth';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     BikerPage,
+    LoginPage
   ],
   imports: [
     BrowserModule,
@@ -30,13 +34,15 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
     AgmCoreModule.forRoot(ENV.gmapsAPI),
     AngularFireModule.initializeApp(ENV.firebase),
     AngularFirestoreModule,
+    AngularFireAuthModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
     HomePage,
-    BikerPage
+    BikerPage,
+    LoginPage
   ],
   providers: [
     StatusBar,
@@ -45,7 +51,8 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
     Geolocation,
     DeviceMotion,
     Device,
-    RiderlocationProvider
+    RiderlocationProvider,
+    AuthProvider
   ]
 })
 export class AppModule {}
