@@ -14,7 +14,7 @@
 
 
 <ion-content padding>
-  <agm-map [latitude]="lat" [longitude]="lng">
+  <agm-map [latitude]="_currentLocn?.lat" [longitude]="_currentLocn?.lng">
     <agm-marker *ngIf="_currentLocn" [latitude]="_currentLocn.lat" [longitude]="_currentLocn.lng"></agm-marker>
     <agm-polyline>
       <agm-polyline-point *ngFor="let hiLoc of totalPath" [latitude]="hiLoc.lat" [longitude]="hiLoc.lng">

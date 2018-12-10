@@ -33,7 +33,7 @@ import { AuthProvider } from '../providers/auth/auth';
     HttpClientModule,
     AgmCoreModule.forRoot(ENV.gmapsAPI),
     AngularFireModule.initializeApp(ENV.firebase),
-    AngularFirestoreModule,
+    AngularFirestoreModule.enablePersistence(),
     AngularFireAuthModule,
     IonicModule.forRoot(MyApp)
   ],
