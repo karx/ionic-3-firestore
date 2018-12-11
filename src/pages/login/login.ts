@@ -2,6 +2,7 @@ import { BikerPage } from './../biker/biker';
 import { AuthProvider } from './../../providers/auth/auth';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { RiderProvider } from '../../providers/rider/rider';
 
 /**
  * Generated class for the LoginPage page.
@@ -20,7 +21,8 @@ export class LoginPage {
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    private authService: AuthProvider
+    private authService: AuthProvider,
+    private riderService: RiderProvider
     ) {
   }
 
@@ -35,6 +37,7 @@ export class LoginPage {
       .then( (user) => {
         console.log(user);
         if (user) {
+          this.riderService.updateRiderInfo( this.authService.getUser() );
           this.navCtrl.setRoot(BikerPage)
         } else {
           console.log('NW');

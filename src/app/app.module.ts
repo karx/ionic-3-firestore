@@ -20,6 +20,7 @@ import { RiderlocationProvider } from '../providers/riderlocation/riderlocation'
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AuthProvider } from '../providers/auth/auth';
+import { RiderProvider } from '../providers/rider/rider';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { AuthProvider } from '../providers/auth/auth';
     DeviceMotion,
     Device,
     RiderlocationProvider,
-    AuthProvider
+    AuthProvider,
+    RiderProvider
   ]
 })
 export class AppModule {}
