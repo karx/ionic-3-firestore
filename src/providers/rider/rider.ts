@@ -26,6 +26,7 @@ export class RiderProvider {
   }
   updateRiderInfo(userData: User) {
     return this.ridersCollection.doc(userData.uid).set({
+      uid: userData.uid,
       displayName: userData.displayName,
       email: userData.email
     });
