@@ -1,3 +1,4 @@
+import { HiLocation } from './../../models/location';
 import { AngularFirestoreCollection, AngularFirestore } from '@angular/fire/firestore';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -24,11 +25,20 @@ export class RiderProvider {
   getAllRiders() {
     return this.ridersCollection.valueChanges();
   }
-  updateRiderInfo(userData: User) {
+  createRiderInfo(userData: User) {
     return this.ridersCollection.doc(userData.uid).set({
       uid: userData.uid,
       displayName: userData.displayName,
       email: userData.email
     });
   }
+
+  updateRiderLastLocation(userData: User, location: HiLocation) {
+    return this.ridersCollection.doc(userData.uid).update({
+      last_location: {...location}
+    });
+  }
+
+
+
 }

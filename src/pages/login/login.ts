@@ -37,7 +37,7 @@ export class LoginPage {
       .then( (user) => {
         console.log(user);
         if (user) {
-          this.riderService.updateRiderInfo( this.authService.getUser() );
+          this.riderService.createRiderInfo( this.authService.getUser() );
           this.navCtrl.setRoot(BikerPage)
         } else {
           console.log('NW');

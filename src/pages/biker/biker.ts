@@ -1,3 +1,4 @@
+import { RiderProvider } from './../../providers/rider/rider';
 import { AuthProvider } from './../../providers/auth/auth';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
@@ -39,7 +40,8 @@ export class BikerPage {
     private deviceMotion: DeviceMotion,
     private device: Device,
     private riderLocationService: RiderlocationProvider,
-    private authService: AuthProvider
+    private authService: AuthProvider,
+    private riderService: RiderProvider
 
     ) {
   }
@@ -48,6 +50,9 @@ export class BikerPage {
     console.log('ionViewDidLoad BikerPage');
     this._user = this.authService.getUser();
     console.log(this._user);
+    if (this._user) {
+      this._user_uid = this._user.uid;
+    }
     this.initMap();
   }
 
@@ -71,6 +76,7 @@ export class BikerPage {
   }
   updateHomingLocation(location: HiLocation) {
     this._currentLocn = location;
+    this.riderService.updateRiderLastLocation(this._user, location);
   }
   getHistoricalData() {
 
