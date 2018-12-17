@@ -1,11 +1,78 @@
-webpackJsonp([3],{
+webpackJsonp([5],{
 
-/***/ 113:
+/***/ 139:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SurveyProvider; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_fire_firestore__ = __webpack_require__(72);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_operators__ = __webpack_require__(22);
+var __assign = (this && this.__assign) || Object.assign || function(t) {
+    for (var s, i = 1, n = arguments.length; i < n; i++) {
+        s = arguments[i];
+        for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+            t[p] = s[p];
+    }
+    return t;
+};
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+/*
+  Generated class for the SurveyProvider provider.
+
+  See https://angular.io/guide/dependency-injection for more info on providers
+  and Angular DI.
+*/
+var SurveyProvider = (function () {
+    function SurveyProvider(db) {
+        this.db = db;
+        this._COL = 'Surveys';
+        this.surveysCollection = db.collection(this._COL);
+        console.log('Hello RidersProvider Provider');
+    }
+    SurveyProvider.prototype.getAllSurveyByRider = function (uid) {
+        return this.db.collection(this._COL, function (ref) { return ref.where('uid', '==', uid); })
+            .snapshotChanges()
+            .pipe(Object(__WEBPACK_IMPORTED_MODULE_2_rxjs_operators__["map"])(function (actions) { return actions.map(function (a) {
+            var data = a.payload.doc.data();
+            var id = a.payload.doc.id;
+            return __assign({ id: id }, data);
+        }); }));
+    };
+    SurveyProvider.prototype.createNewSurvey = function (survey) {
+        return this.surveysCollection.add(__assign({}, survey));
+    };
+    SurveyProvider.prototype.updateSurvey = function (survey) {
+        return this.surveysCollection.doc(survey.id).update(__assign({}, survey));
+    };
+    SurveyProvider = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["A" /* Injectable */])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_fire_firestore__["a" /* AngularFirestore */]])
+    ], SurveyProvider);
+    return SurveyProvider;
+}());
+
+//# sourceMappingURL=survey.js.map
+
+/***/ }),
+
+/***/ 143:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RiderProvider; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_fire_firestore__ = __webpack_require__(114);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_fire_firestore__ = __webpack_require__(72);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 var __assign = (this && this.__assign) || Object.assign || function(t) {
     for (var s, i = 1, n = arguments.length; i < n; i++) {
@@ -65,79 +132,16 @@ var RiderProvider = (function () {
 
 /***/ }),
 
-/***/ 120:
+/***/ 176:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AuthProvider; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_fire_auth__ = __webpack_require__(221);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_firebase__ = __webpack_require__(224);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_firebase__);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-/*
-  Generated class for the AuthProvider provider.
-
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
-var AuthProvider = (function () {
-    // public userObservable: Subject<User> = new;
-    function AuthProvider(afAuth) {
-        var _this = this;
-        this.afAuth = afAuth;
-        this.afAuth.authState.subscribe(function (user) {
-            _this.user = user;
-            // this.userObservable.next(this.user);
-            console.log(_this.user);
-        });
-    }
-    AuthProvider.prototype.login = function () {
-        return this.afAuth.auth.signInWithPopup(new __WEBPACK_IMPORTED_MODULE_2_firebase__["auth"].GoogleAuthProvider());
-    };
-    AuthProvider.prototype.getLoggedInStatus = function () {
-        console.log(this.user);
-        console.log(this.user && this.user !== null);
-        return (this.user && this.user !== null);
-    };
-    AuthProvider.prototype.getUser = function () {
-        return this.user;
-    };
-    AuthProvider.prototype.logout = function () {
-        this.afAuth.auth.signOut();
-    };
-    AuthProvider = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_fire_auth__["a" /* AngularFireAuth */]])
-    ], AuthProvider);
-    return AuthProvider;
-}());
-
-//# sourceMappingURL=auth.js.map
-
-/***/ }),
-
-/***/ 175:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__biker_biker__ = __webpack_require__(176);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_auth_auth__ = __webpack_require__(120);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SurveyEachPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__config_questionbank__ = __webpack_require__(461);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_auth_auth__ = __webpack_require__(64);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(54);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_rider_rider__ = __webpack_require__(113);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(44);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_survey_survey__ = __webpack_require__(139);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -153,68 +157,58 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 /**
- * Generated class for the LoginPage page.
+ * Generated class for the SurveyEachPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
-var LoginPage = (function () {
-    function LoginPage(navCtrl, navParams, authService, riderService) {
+var SurveyEachPage = (function () {
+    function SurveyEachPage(navCtrl, navParams, authService, surveyService) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.authService = authService;
-        this.riderService = riderService;
+        this.surveyService = surveyService;
+        this.totalQuestionBank = __WEBPACK_IMPORTED_MODULE_0__config_questionbank__["a" /* questionBank */];
+        this._survey = this.navParams.get('survey');
+        this.isNew = this.navParams.get('isNew');
     }
-    LoginPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad LoginPage');
-        if (this.authService.getLoggedInStatus() === true) {
-            this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_0__biker_biker__["a" /* BikerPage */]);
-        }
+    SurveyEachPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad SurveyEachPage');
+        console.log(this.totalQuestionBank);
     };
-    LoginPage.prototype.attemptLogin = function () {
-        var _this = this;
-        this.authService.login()
-            .then(function (user) {
-            console.log(user);
-            if (user) {
-                _this.riderService.createRiderInfo(_this.authService.getUser());
-                _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_0__biker_biker__["a" /* BikerPage */]);
-            }
-            else {
-                console.log('NW');
-            }
-        });
+    SurveyEachPage.prototype.getImageFromCamera = function () {
     };
-    LoginPage = __decorate([
+    SurveyEachPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["m" /* Component */])({
-            selector: 'page-login',template:/*ion-inline-start:"/Users/kaaro/Desktop/src/ionic-3-firestore/src/pages/login/login.html"*/'<!--\n  Generated template for the LoginPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>login</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <button (click)="attemptLogin()"> Login With Google </button>\n</ion-content>\n'/*ion-inline-end:"/Users/kaaro/Desktop/src/ionic-3-firestore/src/pages/login/login.html"*/,
+            selector: 'page-survey-each',template:/*ion-inline-start:"/Users/kaaro/Desktop/src/ionic-3-firestore/src/pages/survey-each/survey-each.html"*/'<!--\n  Generated template for the SurveyEachPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Live-Collection Room</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n    <button ion-button icon-end (click)="getImageFromCamera()">\n        Add Image\n        <ion-icon name="camera"></ion-icon>\n      </button>\n  <ion-list>\n    <ion-item *ngFor="let eachQuestion of totalQuestionBank" >\n      <ion-card>\n        <!-- <img src="img/nin-live.png" /> -->\n        <ion-card-content>\n          <ion-card-title>\n            {{eachQuestion.phrase}}\n          </ion-card-title>\n          <p>\n            The most popular industrial group ever, and largely\n            responsible for bringing the music to a mass audience.\n          </p>\n        </ion-card-content>\n      </ion-card>\n\n    </ion-item>\n  </ion-list>\n</ion-content>\n'/*ion-inline-end:"/Users/kaaro/Desktop/src/ionic-3-firestore/src/pages/survey-each/survey-each.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3_ionic_angular__["f" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["g" /* NavParams */],
             __WEBPACK_IMPORTED_MODULE_1__providers_auth_auth__["a" /* AuthProvider */],
-            __WEBPACK_IMPORTED_MODULE_4__providers_rider_rider__["a" /* RiderProvider */]])
-    ], LoginPage);
-    return LoginPage;
+            __WEBPACK_IMPORTED_MODULE_4__providers_survey_survey__["a" /* SurveyProvider */]])
+    ], SurveyEachPage);
+    return SurveyEachPage;
 }());
 
-//# sourceMappingURL=login.js.map
+//# sourceMappingURL=survey-each.js.map
 
 /***/ }),
 
-/***/ 176:
+/***/ 177:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BikerPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__providers_rider_rider__ = __webpack_require__(113);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_auth_auth__ = __webpack_require__(120);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(54);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_geolocation__ = __webpack_require__(308);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_device_motion__ = __webpack_require__(310);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__models_location__ = __webpack_require__(530);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_native_device__ = __webpack_require__(311);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__providers_riderlocation_riderlocation__ = __webpack_require__(312);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__survey_survey__ = __webpack_require__(178);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_rider_rider__ = __webpack_require__(143);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_auth_auth__ = __webpack_require__(64);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ionic_angular__ = __webpack_require__(44);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_geolocation__ = __webpack_require__(271);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_device_motion__ = __webpack_require__(273);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__models_location__ = __webpack_require__(510);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_device__ = __webpack_require__(274);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__providers_riderlocation_riderlocation__ = __webpack_require__(275);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -224,6 +218,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
 
 
 
@@ -267,7 +262,7 @@ var BikerPage = (function () {
         this.initMap();
     };
     BikerPage.prototype.getHiLocation = function (coords) {
-        var returnLocation = new __WEBPACK_IMPORTED_MODULE_6__models_location__["a" /* HiLocation */]();
+        var returnLocation = new __WEBPACK_IMPORTED_MODULE_7__models_location__["a" /* HiLocation */]();
         returnLocation.user_uid = this._user_uid;
         returnLocation.device_uuid = this.device.uuid;
         returnLocation.lat = coords.latitude;
@@ -320,18 +315,21 @@ var BikerPage = (function () {
             }
         });
     };
+    BikerPage.prototype.startSurvey = function () {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_0__survey_survey__["a" /* SurveyPage */]);
+    };
     BikerPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["m" /* Component */])({
-            selector: 'page-biker',template:/*ion-inline-start:"/Users/kaaro/Desktop/src/ionic-3-firestore/src/pages/biker/biker.html"*/'<!--\n  Generated template for the BikerPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title> Biker Page : {{_user?.displayName || _user?.email}}</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <agm-map [latitude]="_currentLocn?.lat" [longitude]="_currentLocn?.lng">\n    <agm-marker *ngIf="_currentLocn" [latitude]="_currentLocn.lat" [longitude]="_currentLocn.lng"></agm-marker>\n    <agm-polyline>\n      <agm-polyline-point *ngFor="let hiLoc of totalPath" [latitude]="hiLoc.lat" [longitude]="hiLoc.lng">\n      </agm-polyline-point>\n    </agm-polyline>\n  </agm-map>\n</ion-content>\n'/*ion-inline-end:"/Users/kaaro/Desktop/src/ionic-3-firestore/src/pages/biker/biker.html"*/,
+        Object(__WEBPACK_IMPORTED_MODULE_3__angular_core__["m" /* Component */])({
+            selector: 'page-biker',template:/*ion-inline-start:"/Users/kaaro/Desktop/src/ionic-3-firestore/src/pages/biker/biker.html"*/'<!--\n  Generated template for the BikerPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title> Biker Page : {{_user?.displayName || _user?.email}}</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <ion-fab bottom right>\n    <button ion-fab mini (click)="startSurvey()">\n      <ion-icon name="add"></ion-icon>\n    </button>\n  </ion-fab>\n  <agm-map [latitude]="_currentLocn?.lat" [longitude]="_currentLocn?.lng">\n    <agm-marker *ngIf="_currentLocn" [latitude]="_currentLocn.lat" [longitude]="_currentLocn.lng"></agm-marker>\n    <agm-polyline>\n      <agm-polyline-point *ngFor="let hiLoc of totalPath" [latitude]="hiLoc.lat" [longitude]="hiLoc.lng">\n      </agm-polyline-point>\n    </agm-polyline>\n  </agm-map>\n</ion-content>\n'/*ion-inline-end:"/Users/kaaro/Desktop/src/ionic-3-firestore/src/pages/biker/biker.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3_ionic_angular__["f" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["g" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_4__ionic_native_geolocation__["a" /* Geolocation */],
-            __WEBPACK_IMPORTED_MODULE_5__ionic_native_device_motion__["a" /* DeviceMotion */],
-            __WEBPACK_IMPORTED_MODULE_7__ionic_native_device__["a" /* Device */],
-            __WEBPACK_IMPORTED_MODULE_8__providers_riderlocation_riderlocation__["a" /* RiderlocationProvider */],
-            __WEBPACK_IMPORTED_MODULE_1__providers_auth_auth__["a" /* AuthProvider */],
-            __WEBPACK_IMPORTED_MODULE_0__providers_rider_rider__["a" /* RiderProvider */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4_ionic_angular__["f" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["g" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_5__ionic_native_geolocation__["a" /* Geolocation */],
+            __WEBPACK_IMPORTED_MODULE_6__ionic_native_device_motion__["a" /* DeviceMotion */],
+            __WEBPACK_IMPORTED_MODULE_8__ionic_native_device__["a" /* Device */],
+            __WEBPACK_IMPORTED_MODULE_9__providers_riderlocation_riderlocation__["a" /* RiderlocationProvider */],
+            __WEBPACK_IMPORTED_MODULE_2__providers_auth_auth__["a" /* AuthProvider */],
+            __WEBPACK_IMPORTED_MODULE_1__providers_rider_rider__["a" /* RiderProvider */]])
     ], BikerPage);
     return BikerPage;
 }());
@@ -340,7 +338,160 @@ var BikerPage = (function () {
 
 /***/ }),
 
-/***/ 215:
+/***/ 178:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SurveyPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__providers_auth_auth__ = __webpack_require__(64);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(44);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_survey_survey__ = __webpack_require__(139);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__models_survey__ = __webpack_require__(502);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__survey_each_survey_each__ = __webpack_require__(176);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+/**
+ * Generated class for the SurveyPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var SurveyPage = (function () {
+    function SurveyPage(navCtrl, navParams, authService, surveyService) {
+        var _this = this;
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.authService = authService;
+        this.surveyService = surveyService;
+        this.allSurveys = [];
+        this.loggedInUser = this.authService.getUser();
+        this.surveyService.getAllSurveyByRider(this.loggedInUser.uid)
+            .subscribe(function (res) {
+            console.log(res);
+            _this.allSurveys = res;
+        });
+    }
+    SurveyPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad SurveyPage');
+    };
+    SurveyPage.prototype.startNewBtnClick = function () {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_5__survey_each_survey_each__["a" /* SurveyEachPage */], {
+            isNew: false,
+            survey: new __WEBPACK_IMPORTED_MODULE_4__models_survey__["a" /* Survey */]()
+        });
+    };
+    SurveyPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["m" /* Component */])({
+            selector: 'page-survey',template:/*ion-inline-start:"/Users/kaaro/Desktop/src/ionic-3-firestore/src/pages/survey/survey.html"*/'<!--\n  Generated template for the SurveyPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Happiness Questionare</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n    <button ion-button full (click)="startNewBtnClick()">Start new</button>\n    <ion-list>\n        <ion-item *ngFor="let eachSurvey of allSurveys" >\n          <ion-avatar item-start>\n            <!-- <img src="img/avatar-finn.png"> -->\n          </ion-avatar>\n          <h2>{{eachSurvey.person?.name || \'Unamed Questionare\'}}</h2>\n          <h3>{{eachSurvey.questions ? eachSurvey.questions.length : \'No Questions answered\'}}</h3>\n          <p>Recorded at: {{eachSurvey.timestamp}}</p>\n        </ion-item>\n      </ion-list>\n</ion-content>\n'/*ion-inline-end:"/Users/kaaro/Desktop/src/ionic-3-firestore/src/pages/survey/survey.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_0__providers_auth_auth__["a" /* AuthProvider */],
+            __WEBPACK_IMPORTED_MODULE_3__providers_survey_survey__["a" /* SurveyProvider */]])
+    ], SurveyPage);
+    return SurveyPage;
+}());
+
+//# sourceMappingURL=survey.js.map
+
+/***/ }),
+
+/***/ 179:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__biker_biker__ = __webpack_require__(177);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_auth_auth__ = __webpack_require__(64);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(44);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_rider_rider__ = __webpack_require__(143);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+/**
+ * Generated class for the LoginPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var LoginPage = (function () {
+    function LoginPage(navCtrl, navParams, authService, riderService) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.authService = authService;
+        this.riderService = riderService;
+    }
+    LoginPage.prototype.ionViewDidLoad = function () {
+        var _this = this;
+        console.log('ionViewDidLoad LoginPage');
+        this.authService.userSubject.subscribe(function (user) {
+            if (user) {
+                console.log('logged in');
+                console.log(user);
+                _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_0__biker_biker__["a" /* BikerPage */]);
+            }
+        });
+        if (this.authService.getLoggedInStatus() === true) {
+            this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_0__biker_biker__["a" /* BikerPage */]);
+        }
+    };
+    LoginPage.prototype.attemptLogin = function () {
+        var _this = this;
+        this.authService.login()
+            .then(function (user) {
+            console.log(user);
+            if (user) {
+                _this.riderService.createRiderInfo(_this.authService.getUser());
+                _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_0__biker_biker__["a" /* BikerPage */]);
+            }
+            else {
+                console.log('NW');
+            }
+        });
+    };
+    LoginPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["m" /* Component */])({
+            selector: 'page-login',template:/*ion-inline-start:"/Users/kaaro/Desktop/src/ionic-3-firestore/src/pages/login/login.html"*/'<!--\n  Generated template for the LoginPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>login</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <button (click)="attemptLogin()"> Login With Google </button>\n</ion-content>\n'/*ion-inline-end:"/Users/kaaro/Desktop/src/ionic-3-firestore/src/pages/login/login.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3_ionic_angular__["f" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["g" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_1__providers_auth_auth__["a" /* AuthProvider */],
+            __WEBPACK_IMPORTED_MODULE_4__providers_rider_rider__["a" /* RiderProvider */]])
+    ], LoginPage);
+    return LoginPage;
+}());
+
+//# sourceMappingURL=login.js.map
+
+/***/ }),
+
+/***/ 218:
 /***/ (function(module, exports) {
 
 function webpackEmptyAsyncContext(req) {
@@ -353,25 +504,33 @@ function webpackEmptyAsyncContext(req) {
 webpackEmptyAsyncContext.keys = function() { return []; };
 webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
 module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 215;
+webpackEmptyAsyncContext.id = 218;
 
 /***/ }),
 
-/***/ 267:
+/***/ 268:
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
 	"../pages/biker/biker.module": [
-		539,
-		2
+		545,
+		4
 	],
 	"../pages/login/login.module": [
-		540,
-		1
+		546,
+		3
 	],
 	"../pages/manage-document/manage-document.module": [
-		541,
+		547,
 		0
+	],
+	"../pages/survey-each/survey-each.module": [
+		548,
+		2
+	],
+	"../pages/survey/survey.module": [
+		549,
+		1
 	]
 };
 function webpackAsyncContext(req) {
@@ -385,18 +544,18 @@ function webpackAsyncContext(req) {
 webpackAsyncContext.keys = function webpackAsyncContextKeys() {
 	return Object.keys(map);
 };
-webpackAsyncContext.id = 267;
+webpackAsyncContext.id = 268;
 module.exports = webpackAsyncContext;
 
 /***/ }),
 
-/***/ 312:
+/***/ 275:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RiderlocationProvider; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_fire_firestore__ = __webpack_require__(114);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_fire_firestore__ = __webpack_require__(72);
 var __assign = (this && this.__assign) || Object.assign || function(t) {
     for (var s, i = 1, n = arguments.length; i < n; i++) {
         s = arguments[i];
@@ -450,18 +609,18 @@ var RiderlocationProvider = (function () {
 
 /***/ }),
 
-/***/ 325:
+/***/ 328:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DatabaseProvider; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(268);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(276);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__(504);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__(517);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase__ = __webpack_require__(224);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase__ = __webpack_require__(223);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_firebase__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_firebase_firestore__ = __webpack_require__(218);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_firebase_firestore__ = __webpack_require__(270);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -598,13 +757,13 @@ var DatabaseProvider = (function () {
 
 /***/ }),
 
-/***/ 326:
+/***/ 329:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(327);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(457);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(330);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(460);
 
 
 Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_1__app_module__["a" /* AppModule */]);
@@ -612,32 +771,36 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 
 /***/ }),
 
-/***/ 457:
+/***/ 460:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__pages_login_login__ = __webpack_require__(175);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__ = __webpack_require__(52);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common_http__ = __webpack_require__(268);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ionic_angular__ = __webpack_require__(54);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_splash_screen__ = __webpack_require__(313);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_status_bar__ = __webpack_require__(314);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__app_component__ = __webpack_require__(531);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_home_home__ = __webpack_require__(532);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_biker_biker__ = __webpack_require__(176);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__agm_core__ = __webpack_require__(533);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__ionic_native_geolocation__ = __webpack_require__(308);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__ionic_native_device_motion__ = __webpack_require__(310);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__ionic_native_device__ = __webpack_require__(311);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__config_env__ = __webpack_require__(538);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__angular_fire__ = __webpack_require__(64);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__providers_riderlocation_riderlocation__ = __webpack_require__(312);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__angular_fire_firestore__ = __webpack_require__(114);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__angular_fire_auth__ = __webpack_require__(221);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__providers_auth_auth__ = __webpack_require__(120);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__providers_rider_rider__ = __webpack_require__(113);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__pages_survey_each_survey_each__ = __webpack_require__(176);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__pages_survey_survey__ = __webpack_require__(178);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pages_login_login__ = __webpack_require__(179);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_platform_browser__ = __webpack_require__(53);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_common_http__ = __webpack_require__(276);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_ionic_angular__ = __webpack_require__(44);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_native_splash_screen__ = __webpack_require__(316);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_status_bar__ = __webpack_require__(317);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__app_component__ = __webpack_require__(536);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_home_home__ = __webpack_require__(537);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_biker_biker__ = __webpack_require__(177);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__agm_core__ = __webpack_require__(538);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__ionic_native_geolocation__ = __webpack_require__(271);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__ionic_native_device_motion__ = __webpack_require__(273);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__ionic_native_device__ = __webpack_require__(274);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__config_env__ = __webpack_require__(543);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__angular_fire__ = __webpack_require__(65);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__providers_riderlocation_riderlocation__ = __webpack_require__(275);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__angular_fire_firestore__ = __webpack_require__(72);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__angular_fire_auth__ = __webpack_require__(219);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__providers_auth_auth__ = __webpack_require__(64);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__providers_rider_rider__ = __webpack_require__(143);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__providers_survey_survey__ = __webpack_require__(139);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__providers_question_bank_question_bank__ = __webpack_require__(544);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -665,49 +828,61 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+
+
+
+
 var AppModule = (function () {
     function AppModule() {
     }
     AppModule = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_3__angular_core__["I" /* NgModule */])({
+        Object(__WEBPACK_IMPORTED_MODULE_5__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_7__app_component__["a" /* MyApp */],
-                __WEBPACK_IMPORTED_MODULE_8__pages_home_home__["a" /* HomePage */],
-                __WEBPACK_IMPORTED_MODULE_9__pages_biker_biker__["a" /* BikerPage */],
-                __WEBPACK_IMPORTED_MODULE_0__pages_login_login__["a" /* LoginPage */]
+                __WEBPACK_IMPORTED_MODULE_9__app_component__["a" /* MyApp */],
+                __WEBPACK_IMPORTED_MODULE_10__pages_home_home__["a" /* HomePage */],
+                __WEBPACK_IMPORTED_MODULE_11__pages_biker_biker__["a" /* BikerPage */],
+                __WEBPACK_IMPORTED_MODULE_2__pages_login_login__["a" /* LoginPage */],
+                __WEBPACK_IMPORTED_MODULE_1__pages_survey_survey__["a" /* SurveyPage */],
+                __WEBPACK_IMPORTED_MODULE_0__pages_survey_each_survey_each__["a" /* SurveyEachPage */]
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__["a" /* BrowserModule */],
-                __WEBPACK_IMPORTED_MODULE_2__angular_common_http__["b" /* HttpClientModule */],
-                __WEBPACK_IMPORTED_MODULE_10__agm_core__["a" /* AgmCoreModule */].forRoot(__WEBPACK_IMPORTED_MODULE_14__config_env__["a" /* ENV */].gmapsAPI),
-                __WEBPACK_IMPORTED_MODULE_15__angular_fire__["a" /* AngularFireModule */].initializeApp(__WEBPACK_IMPORTED_MODULE_14__config_env__["a" /* ENV */].firebase),
-                __WEBPACK_IMPORTED_MODULE_17__angular_fire_firestore__["b" /* AngularFirestoreModule */].enablePersistence(),
-                __WEBPACK_IMPORTED_MODULE_18__angular_fire_auth__["b" /* AngularFireAuthModule */],
-                __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["d" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_7__app_component__["a" /* MyApp */], {}, {
+                __WEBPACK_IMPORTED_MODULE_3__angular_platform_browser__["a" /* BrowserModule */],
+                __WEBPACK_IMPORTED_MODULE_4__angular_common_http__["b" /* HttpClientModule */],
+                __WEBPACK_IMPORTED_MODULE_12__agm_core__["a" /* AgmCoreModule */].forRoot(__WEBPACK_IMPORTED_MODULE_16__config_env__["a" /* ENV */].gmapsAPI),
+                __WEBPACK_IMPORTED_MODULE_17__angular_fire__["a" /* AngularFireModule */].initializeApp(__WEBPACK_IMPORTED_MODULE_16__config_env__["a" /* ENV */].firebase),
+                __WEBPACK_IMPORTED_MODULE_19__angular_fire_firestore__["b" /* AngularFirestoreModule */].enablePersistence(),
+                __WEBPACK_IMPORTED_MODULE_20__angular_fire_auth__["b" /* AngularFireAuthModule */],
+                __WEBPACK_IMPORTED_MODULE_6_ionic_angular__["d" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_9__app_component__["a" /* MyApp */], {}, {
                     links: [
                         { loadChildren: '../pages/biker/biker.module#BikerPageModule', name: 'BikerPage', segment: 'biker', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/manage-document/manage-document.module#ManageDocumentPageModule', name: 'manage-document', segment: 'manage-document', priority: 'low', defaultHistory: [] }
+                        { loadChildren: '../pages/manage-document/manage-document.module#ManageDocumentPageModule', name: 'manage-document', segment: 'manage-document', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/survey-each/survey-each.module#SurveyEachPageModule', name: 'SurveyEachPage', segment: 'survey-each', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/survey/survey.module#SurveyPageModule', name: 'SurveyPage', segment: 'survey', priority: 'low', defaultHistory: [] }
                     ]
                 })
             ],
-            bootstrap: [__WEBPACK_IMPORTED_MODULE_4_ionic_angular__["b" /* IonicApp */]],
+            bootstrap: [__WEBPACK_IMPORTED_MODULE_6_ionic_angular__["b" /* IonicApp */]],
             entryComponents: [
-                __WEBPACK_IMPORTED_MODULE_7__app_component__["a" /* MyApp */],
-                __WEBPACK_IMPORTED_MODULE_8__pages_home_home__["a" /* HomePage */],
-                __WEBPACK_IMPORTED_MODULE_9__pages_biker_biker__["a" /* BikerPage */],
-                __WEBPACK_IMPORTED_MODULE_0__pages_login_login__["a" /* LoginPage */]
+                __WEBPACK_IMPORTED_MODULE_9__app_component__["a" /* MyApp */],
+                __WEBPACK_IMPORTED_MODULE_10__pages_home_home__["a" /* HomePage */],
+                __WEBPACK_IMPORTED_MODULE_11__pages_biker_biker__["a" /* BikerPage */],
+                __WEBPACK_IMPORTED_MODULE_2__pages_login_login__["a" /* LoginPage */],
+                __WEBPACK_IMPORTED_MODULE_1__pages_survey_survey__["a" /* SurveyPage */],
+                __WEBPACK_IMPORTED_MODULE_0__pages_survey_each_survey_each__["a" /* SurveyEachPage */]
             ],
             providers: [
-                __WEBPACK_IMPORTED_MODULE_6__ionic_native_status_bar__["a" /* StatusBar */],
-                __WEBPACK_IMPORTED_MODULE_5__ionic_native_splash_screen__["a" /* SplashScreen */],
-                { provide: __WEBPACK_IMPORTED_MODULE_3__angular_core__["u" /* ErrorHandler */], useClass: __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["c" /* IonicErrorHandler */] },
-                __WEBPACK_IMPORTED_MODULE_11__ionic_native_geolocation__["a" /* Geolocation */],
-                __WEBPACK_IMPORTED_MODULE_12__ionic_native_device_motion__["a" /* DeviceMotion */],
-                __WEBPACK_IMPORTED_MODULE_13__ionic_native_device__["a" /* Device */],
-                __WEBPACK_IMPORTED_MODULE_16__providers_riderlocation_riderlocation__["a" /* RiderlocationProvider */],
-                __WEBPACK_IMPORTED_MODULE_19__providers_auth_auth__["a" /* AuthProvider */],
-                __WEBPACK_IMPORTED_MODULE_20__providers_rider_rider__["a" /* RiderProvider */]
+                __WEBPACK_IMPORTED_MODULE_8__ionic_native_status_bar__["a" /* StatusBar */],
+                __WEBPACK_IMPORTED_MODULE_7__ionic_native_splash_screen__["a" /* SplashScreen */],
+                { provide: __WEBPACK_IMPORTED_MODULE_5__angular_core__["u" /* ErrorHandler */], useClass: __WEBPACK_IMPORTED_MODULE_6_ionic_angular__["c" /* IonicErrorHandler */] },
+                __WEBPACK_IMPORTED_MODULE_13__ionic_native_geolocation__["a" /* Geolocation */],
+                __WEBPACK_IMPORTED_MODULE_14__ionic_native_device_motion__["a" /* DeviceMotion */],
+                __WEBPACK_IMPORTED_MODULE_15__ionic_native_device__["a" /* Device */],
+                __WEBPACK_IMPORTED_MODULE_18__providers_riderlocation_riderlocation__["a" /* RiderlocationProvider */],
+                __WEBPACK_IMPORTED_MODULE_21__providers_auth_auth__["a" /* AuthProvider */],
+                __WEBPACK_IMPORTED_MODULE_22__providers_rider_rider__["a" /* RiderProvider */],
+                __WEBPACK_IMPORTED_MODULE_23__providers_survey_survey__["a" /* SurveyProvider */],
+                __WEBPACK_IMPORTED_MODULE_24__providers_question_bank_question_bank__["a" /* QuestionBankProvider */]
             ]
         })
     ], AppModule);
@@ -718,7 +893,160 @@ var AppModule = (function () {
 
 /***/ }),
 
-/***/ 530:
+/***/ 461:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return questionBank; });
+var questionBank = [
+    {
+        question_id: 'm2-01',
+        phrase: "Please type your Colony Name, and District.",
+        input_type: "text"
+    },
+    {
+        question_id: 'm2-02',
+        phrase: "What’s your gender?",
+        input_type: "option",
+        options: [
+            { value: "Male" },
+            { value: "Female" },
+            { value: "Others" },
+            { value: "Rather not say" }
+        ]
+    },
+    {
+        question_id: 'm2-03',
+        phrase: "Thanks. What is your month and year of birth ?",
+        input_type: "date",
+    },
+    {
+        question_id: 'm2-04',
+        phrase: "Select your highest education?",
+        input_type: "option",
+        options: [
+            { value: "High School/ Higher Secondary" },
+            { value: "MBA" },
+            { value: "Intermediate/Senior Secondary" },
+            { value: "MCA" },
+            { value: "Polytechnic/Diploma" },
+            { value: "MTech" },
+            { value: "BA" },
+            { value: "MBBS" },
+            { value: "BSc" },
+            { value: "MS/MD" },
+            { value: "BCom" },
+            { value: "LLM" },
+            { value: "BBA" },
+            { value: "MPhil" },
+            { value: "BCA" },
+            { value: "PhD General " },
+            { value: "BE/BTech" },
+            { value: "Civil services (IAS/IPS/IRS/IFS)" },
+            { value: "LLB" },
+            { value: "Illiterate" },
+            { value: "MA" },
+            { value: "School Up to 4 years" },
+            { value: "MSc" },
+            { value: "School 5-9 years" },
+            { value: "MCom" },
+            { value: "PhD Profession" },
+            { value: "CA/ICWA/CS" },
+            { value: "PG Diploma" }
+        ]
+    },
+    {
+        question_id: 'm2-05',
+        phrase: "Select your current occupation?",
+        input_type: "option",
+        options: [
+            { value: "Unskilled worker" },
+            { value: "Skilled worker" },
+            { value: "Petty Trader" },
+            { value: "Shop owners/trader" },
+            { value: "Businessman with no employee" },
+            { value: "Student" },
+            { value: "Housewife" },
+            { value: "Retired" },
+            { value: "Unemployed but searching for job" },
+            { value: "Self-employed professional" },
+            { value: "Clerical/salesman (Salaried)" },
+            { value: "Supervisory level (Salaried)" },
+            { value: "Junior level officer/executive (Salaried)" },
+            { value: "Middle level officer/executive (Salaried)" },
+            { value: "Senior level officer/executive (Salaried)" },
+            { value: "Businessman/industrialist with 1-5 employees" },
+            { value: "Businessman/industrialist with 6-10 employees" },
+            { value: "Businessman/industrialist with 10-50 employees" },
+            { value: "Businessman/industrialist with 50+ employees" },
+            { value: "Unable to work due to health/other reason" }
+        ]
+    },
+    {
+        question_id: 'm2-06',
+        phrase: "Which of these options best describes your marital status?",
+        input_type: "option",
+        options: [
+            { value: "Single - living at home with parents" },
+            { value: "Single - living alone" },
+            { value: "Married & living in a joint family" },
+            { value: "Married & living in a nuclear family" },
+            { value: "Widowed" },
+            { value: "Divorced" }
+        ]
+    },
+    {
+        question_id: 'm2-07m',
+        phrase: "Please type the number of Male Members in your household",
+        input_type: "text",
+    },
+    {
+        question_id: 'm2-07f',
+        phrase: "Please type the number of Female Members in your household",
+        input_type: "text",
+    },
+    {
+        question_id: 'm2-08',
+        phrase: "Which of these durables do you currently have in your home?",
+        input_type: "multi",
+        options: [
+            { value: "Electricity Connection" },
+            { value: "Air Conditioner" },
+            { value: "Car/Jeep/Van" },
+            { value: "Ceiling Fan" },
+            { value: "LPG Stove" },
+            { value: "Colour TV" },
+            { value: "Refrigerator" },
+            { value: "Washing Machine" },
+            { value: "Two Wheeler		" },
+            { value: "Landline/Fixed Wireless Phone connection" },
+            { value: "Laptop Computer" },
+            { value: "Desktop Computer" },
+            { value: "Tablet/Pads" },
+            { value: "Agricultural Land (currently under cultivation or plantation)	" }
+        ]
+    }
+];
+//# sourceMappingURL=questionbank.js.map
+
+/***/ }),
+
+/***/ 502:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Survey; });
+var Survey = (function () {
+    function Survey() {
+    }
+    return Survey;
+}());
+
+//# sourceMappingURL=survey.js.map
+
+/***/ }),
+
+/***/ 510:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -733,16 +1061,16 @@ var HiLocation = (function () {
 
 /***/ }),
 
-/***/ 531:
+/***/ 536:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__pages_login_login__ = __webpack_require__(175);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__pages_login_login__ = __webpack_require__(179);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(54);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_status_bar__ = __webpack_require__(314);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_splash_screen__ = __webpack_require__(313);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(44);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_status_bar__ = __webpack_require__(317);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_splash_screen__ = __webpack_require__(316);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -779,14 +1107,14 @@ var MyApp = (function () {
 
 /***/ }),
 
-/***/ 532:
+/***/ 537:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(54);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_database_database__ = __webpack_require__(325);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(44);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_database_database__ = __webpack_require__(328);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -958,7 +1286,7 @@ var HomePage = (function () {
 
 /***/ }),
 
-/***/ 538:
+/***/ 543:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -979,7 +1307,119 @@ var ENV = {
 };
 //# sourceMappingURL=env.js.map
 
+/***/ }),
+
+/***/ 544:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return QuestionBankProvider; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_fire_firestore__ = __webpack_require__(72);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+/*
+  Generated class for the QuestionBankProvider provider.
+
+  See https://angular.io/guide/dependency-injection for more info on providers
+  and Angular DI.
+*/
+var QuestionBankProvider = (function () {
+    function QuestionBankProvider(db) {
+        this.db = db;
+        this._COL = 'Quetions';
+        this.questionCollections = db.collection(this._COL);
+        console.log('Hello RidersProvider Provider');
+    }
+    QuestionBankProvider.prototype.getAllQuestions = function () {
+        return this.questionCollections.valueChanges();
+    };
+    QuestionBankProvider = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["A" /* Injectable */])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_fire_firestore__["a" /* AngularFirestore */]])
+    ], QuestionBankProvider);
+    return QuestionBankProvider;
+}());
+
+//# sourceMappingURL=question-bank.js.map
+
+/***/ }),
+
+/***/ 64:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AuthProvider; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_fire_auth__ = __webpack_require__(219);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_firebase__ = __webpack_require__(223);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_firebase__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs__ = __webpack_require__(11);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+/*
+  Generated class for the AuthProvider provider.
+
+  See https://angular.io/guide/dependency-injection for more info on providers
+  and Angular DI.
+*/
+var AuthProvider = (function () {
+    // public userObservable: Subject<User> = new;
+    function AuthProvider(afAuth) {
+        var _this = this;
+        this.afAuth = afAuth;
+        this.userSubject = new __WEBPACK_IMPORTED_MODULE_3_rxjs__["ReplaySubject"](1);
+        this.afAuth.authState.subscribe(function (user) {
+            _this.user = user;
+            // this.userObservable.next(this.user);
+            _this.userSubject.next(_this.user);
+            console.log(_this.user);
+        });
+    }
+    AuthProvider.prototype.login = function () {
+        return this.afAuth.auth.signInWithPopup(new __WEBPACK_IMPORTED_MODULE_2_firebase__["auth"].GoogleAuthProvider());
+    };
+    AuthProvider.prototype.getLoggedInStatus = function () {
+        console.log(this.user);
+        console.log(this.user && this.user !== null);
+        return (this.user && this.user !== null);
+    };
+    AuthProvider.prototype.getUser = function () {
+        return this.user;
+    };
+    AuthProvider.prototype.logout = function () {
+        this.afAuth.auth.signOut();
+    };
+    AuthProvider = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["A" /* Injectable */])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_fire_auth__["a" /* AngularFireAuth */]])
+    ], AuthProvider);
+    return AuthProvider;
+}());
+
+//# sourceMappingURL=auth.js.map
+
 /***/ })
 
-},[326]);
+},[329]);
 //# sourceMappingURL=main.js.map

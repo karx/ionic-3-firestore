@@ -2,7 +2,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { auth, User } from 'firebase';
-import { Observable, Subject } from 'rxjs';
+import { Observable, Subject, ReplaySubject } from 'rxjs';
 
 /*
   Generated class for the AuthProvider provider.
@@ -14,11 +14,13 @@ import { Observable, Subject } from 'rxjs';
 export class AuthProvider {
 
   public user: User;
+  public userSubject: ReplaySubject<User> = new ReplaySubject(1);
   // public userObservable: Subject<User> = new;
   constructor(public afAuth: AngularFireAuth) {
     this.afAuth.authState.subscribe( (user) => {
       this.user = user;
       // this.userObservable.next(this.user);
+      this.userSubject.next(this.user);
       console.log(this.user);
     });
   }

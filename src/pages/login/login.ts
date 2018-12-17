@@ -28,6 +28,13 @@ export class LoginPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
+    this.authService.userSubject.subscribe( (user) => {
+      if(user) {
+        console.log('logged in');
+        console.log(user);
+        this.navCtrl.setRoot(BikerPage);
+      }
+    })
     if (this.authService.getLoggedInStatus() === true) {
       this.navCtrl.setRoot(BikerPage);
     }

@@ -1,3 +1,4 @@
+import { SurveyPage } from './../survey/survey';
 import { RiderProvider } from './../../providers/rider/rider';
 import { AuthProvider } from './../../providers/auth/auth';
 import { Component } from '@angular/core';
@@ -124,6 +125,10 @@ export class BikerPage {
     });
 
 
+  }
+
+  startSurvey() {
+    this.navCtrl.push(SurveyPage);
   }
 
 

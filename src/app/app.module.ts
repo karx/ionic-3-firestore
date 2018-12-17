@@ -1,3 +1,5 @@
+import { SurveyEachPage } from './../pages/survey-each/survey-each';
+import { SurveyPage } from './../pages/survey/survey';
 import { LoginPage } from './../pages/login/login';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
@@ -21,13 +23,17 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AuthProvider } from '../providers/auth/auth';
 import { RiderProvider } from '../providers/rider/rider';
+import { SurveyProvider } from '../providers/survey/survey';
+import { QuestionBankProvider } from '../providers/question-bank/question-bank';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     BikerPage,
-    LoginPage
+    LoginPage,
+    SurveyPage,
+    SurveyEachPage
   ],
   imports: [
     BrowserModule,
@@ -43,7 +49,9 @@ import { RiderProvider } from '../providers/rider/rider';
     MyApp,
     HomePage,
     BikerPage,
-    LoginPage
+    LoginPage,
+    SurveyPage,
+    SurveyEachPage
   ],
   providers: [
     StatusBar,
@@ -54,7 +62,9 @@ import { RiderProvider } from '../providers/rider/rider';
     Device,
     RiderlocationProvider,
     AuthProvider,
-    RiderProvider
+    RiderProvider,
+    SurveyProvider,
+    QuestionBankProvider
   ]
 })
 export class AppModule {}
