@@ -44,7 +44,7 @@ export class SurveyPage {
   startNewBtnClick() {
     this.navCtrl.push(SurveyEachPage,{
       isNew: false,
-      survey: new Survey()
+      survey: new Survey(this.loggedInUser.uid)
     });
   }
 

@@ -11,4 +11,11 @@ export class Survey {
   timestamp: string;
   last_updated: string;
   questions: Question[];
+
+  constructor(uid: string) {
+    this.timestamp = new Date().toISOString();
+    this.last_updated = new Date().toISOString();
+    this.uid = uid;
+    this.questions = [];
+  }
 }

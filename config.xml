@@ -90,12 +90,11 @@
     <plugin name="cordova-universal-links-plugin" spec="~1.2.1" />
     <plugin name="cordova-plugin-browsertab" spec="^0.2.0" />
     <plugin name="cordova-plugin-inappbrowser" spec="^3.0.0" />
-
     <universal-links>
-    <host name="happinessindex.page.link" scheme="https" />
-    <host name="backpacking-87e01.firebaseapp.com" scheme="https">
-        <path url="/__/auth/callback"/>
-    </host>
+        <host name="happinessindex.page.link" scheme="https" />
+        <host name="backpacking-87e01.firebaseapp.com" scheme="https">
+            <path url="/__/auth/callback" />
+        </host>
     </universal-links>
-
+    <plugin name="cordova-plugin-tts" spec="^0.2.3" />
 </widget>

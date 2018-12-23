@@ -27,7 +27,7 @@ import { AuthProvider } from '../providers/auth/auth';
 import { RiderProvider } from '../providers/rider/rider';
 import { SurveyProvider } from '../providers/survey/survey';
 import { QuestionBankProvider } from '../providers/question-bank/question-bank';
-
+import { TextToSpeech } from '@ionic-native/text-to-speech';
 @NgModule({
   declarations: [
     MyApp,
@@ -64,6 +64,7 @@ import { QuestionBankProvider } from '../providers/question-bank/question-bank';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     Geolocation,
     DeviceMotion,
+    TextToSpeech,
     Device,
     RiderlocationProvider,
     AuthProvider,

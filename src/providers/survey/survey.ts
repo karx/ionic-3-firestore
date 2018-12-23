@@ -36,7 +36,14 @@ export class SurveyProvider {
   createNewSurvey(survey: Survey) {
     return this.surveysCollection.add({
       ...survey
-    });
+    })
+      .then((res) => {
+        return {
+          id: res.id,
+          ...survey
+        }
+      }
+    );
   }
 
   updateSurvey(survey: Survey) {

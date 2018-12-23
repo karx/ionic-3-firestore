@@ -51,16 +51,20 @@ var SurveyProvider = (function () {
         }); }));
     };
     SurveyProvider.prototype.createNewSurvey = function (survey) {
-        return this.surveysCollection.add(__assign({}, survey));
+        return this.surveysCollection.add(__assign({}, survey))
+            .then(function (res) {
+            return __assign({ id: res.id }, survey);
+        });
     };
     SurveyProvider.prototype.updateSurvey = function (survey) {
         return this.surveysCollection.doc(survey.id).update(__assign({}, survey));
     };
     SurveyProvider = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_fire_firestore__["a" /* AngularFirestore */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_fire_firestore__["a" /* AngularFirestore */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_fire_firestore__["a" /* AngularFirestore */]) === "function" && _a || Object])
     ], SurveyProvider);
     return SurveyProvider;
+    var _a;
 }());
 
 //# sourceMappingURL=survey.js.map
@@ -329,19 +333,17 @@ var SurveyPage = (function () {
     SurveyPage.prototype.startNewBtnClick = function () {
         this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_5__survey_each_survey_each__["a" /* SurveyEachPage */], {
             isNew: false,
-            survey: new __WEBPACK_IMPORTED_MODULE_4__models_survey__["a" /* Survey */]()
+            survey: new __WEBPACK_IMPORTED_MODULE_4__models_survey__["a" /* Survey */](this.loggedInUser.uid)
         });
     };
     SurveyPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["m" /* Component */])({
             selector: 'page-survey',template:/*ion-inline-start:"/Users/kaaro/Desktop/src/ionic-3-firestore/src/pages/survey/survey.html"*/'<!--\n  Generated template for the SurveyPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Happiness Questionare</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n    <button ion-button full (click)="startNewBtnClick()">Start new</button>\n    <ion-list>\n        <ion-item *ngFor="let eachSurvey of allSurveys" >\n          <ion-avatar item-start>\n            <!-- <img src="img/avatar-finn.png"> -->\n          </ion-avatar>\n          <h2>{{eachSurvey.person?.name || \'Unamed Questionare\'}}</h2>\n          <h3>{{eachSurvey.questions ? eachSurvey.questions.length : \'No Questions answered\'}}</h3>\n          <p>Recorded at: {{eachSurvey.timestamp}}</p>\n        </ion-item>\n      </ion-list>\n</ion-content>\n'/*ion-inline-end:"/Users/kaaro/Desktop/src/ionic-3-firestore/src/pages/survey/survey.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_0__providers_auth_auth__["a" /* AuthProvider */],
-            __WEBPACK_IMPORTED_MODULE_3__providers_survey_survey__["a" /* SurveyProvider */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_0__providers_auth_auth__["a" /* AuthProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__providers_auth_auth__["a" /* AuthProvider */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__providers_survey_survey__["a" /* SurveyProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__providers_survey_survey__["a" /* SurveyProvider */]) === "function" && _d || Object])
     ], SurveyPage);
     return SurveyPage;
+    var _a, _b, _c, _d;
 }());
 
 //# sourceMappingURL=survey.js.map
@@ -741,12 +743,14 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__providers_rider_rider__ = __webpack_require__(144);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__providers_survey_survey__ = __webpack_require__(140);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__providers_question_bank_question_bank__ = __webpack_require__(547);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__ionic_native_text_to_speech__ = __webpack_require__(554);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -822,6 +826,7 @@ var AppModule = (function () {
                 { provide: __WEBPACK_IMPORTED_MODULE_7__angular_core__["u" /* ErrorHandler */], useClass: __WEBPACK_IMPORTED_MODULE_8_ionic_angular__["c" /* IonicErrorHandler */] },
                 __WEBPACK_IMPORTED_MODULE_15__ionic_native_geolocation__["a" /* Geolocation */],
                 __WEBPACK_IMPORTED_MODULE_16__ionic_native_device_motion__["a" /* DeviceMotion */],
+                __WEBPACK_IMPORTED_MODULE_27__ionic_native_text_to_speech__["a" /* TextToSpeech */],
                 __WEBPACK_IMPORTED_MODULE_17__ionic_native_device__["a" /* Device */],
                 __WEBPACK_IMPORTED_MODULE_20__providers_riderlocation_riderlocation__["a" /* RiderlocationProvider */],
                 __WEBPACK_IMPORTED_MODULE_23__providers_auth_auth__["a" /* AuthProvider */],
@@ -845,6 +850,7 @@ var AppModule = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EachQuestionComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__models_question__ = __webpack_require__(462);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_text_to_speech__ = __webpack_require__(554);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -856,6 +862,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
 /**
  * Generated class for the EachQuestionComponent component.
  *
@@ -863,16 +870,26 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Components.
  */
 var EachQuestionComponent = (function () {
-    function EachQuestionComponent() {
+    function EachQuestionComponent(tts) {
+        this.tts = tts;
         this.answerFromUser = new __WEBPACK_IMPORTED_MODULE_1__angular_core__["v" /* EventEmitter */]();
         console.log(this.question);
         console.log('Hello EachQuestionComponent Component');
         this.text = 'Hello World';
     }
+    EachQuestionComponent.prototype.ngOnChanges = function (changes) {
+        var st = changes.question;
+        this.readQuestion();
+    };
     EachQuestionComponent.prototype.optionClicked = function (answer) {
         console.log(answer);
         this.answerFromUser.emit(answer);
         this.textAnswer = '';
+    };
+    EachQuestionComponent.prototype.readQuestion = function () {
+        if (this.question && this.question.phrase) {
+            this.tts.speak(this.question.phrase);
+        }
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["D" /* Input */])(),
@@ -886,10 +903,10 @@ var EachQuestionComponent = (function () {
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["m" /* Component */])({
             selector: 'each-question',template:/*ion-inline-start:"/Users/kaaro/Desktop/src/ionic-3-firestore/src/components/each-question/each-question.html"*/'<div id="q-cont" *ngIf="question" >\n  <div class="slide">\n    <div class="question">\n      {{question.phrase}}\n    </div>\n    <div class="input-div" [ngSwitch]="question.input_type">\n\n        <div  class="options" *ngSwitchCase="\'option\'">\n\n            <div\n              class="op"\n              *ngFor="let eachAns of question.options"\n              (click)="optionClicked(eachAns.value)"\n            >\n              {{eachAns.value}}\n            </div>\n\n        </div>\n        <div *ngSwitchCase="\'text\'" class="text-input">\n          <input type="text" [(ngModel)]="textAnswer" (keydown.enter)="optionClicked(textAnswer)">\n          <button ion-button color="success" (click)="optionClicked(textAnswer)">Submit</button>\n\n        </div>\n\n        <div *ngSwitchDefault class="text-input">\n          <input type="text" [(ngModel)]="textAnswer" (keydown.enter)="optionClicked(textAnswer)">\n          <button ion-button color="success" (click)="optionClicked(textAnswer)">Submit</button>\n\n        </div>\n    </div>\n\n    <button ion-button color="light" (click)="optionClicked(\'skipped\')">Skip</button>\n  </div>\n</div>\n'/*ion-inline-end:"/Users/kaaro/Desktop/src/ionic-3-firestore/src/components/each-question/each-question.html"*/
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_native_text_to_speech__["a" /* TextToSpeech */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_native_text_to_speech__["a" /* TextToSpeech */]) === "function" && _b || Object])
     ], EachQuestionComponent);
     return EachQuestionComponent;
-    var _a;
+    var _a, _b;
 }());
 
 //# sourceMappingURL=each-question.js.map
@@ -1086,7 +1103,11 @@ var questionBank = [
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Survey; });
 var Survey = (function () {
-    function Survey() {
+    function Survey(uid) {
+        this.timestamp = new Date().toISOString();
+        this.last_updated = new Date().toISOString();
+        this.uid = uid;
+        this.questions = [];
     }
     return Survey;
 }());
@@ -1115,7 +1136,7 @@ var HiLocation = (function () {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__pages_survey_each_survey_each__ = __webpack_require__(96);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__pages_login_login__ = __webpack_require__(327);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(44);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_status_bar__ = __webpack_require__(316);
@@ -1135,9 +1156,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 var MyApp = (function () {
+    // rootPage:any = SurveyEachPage;
     function MyApp(platform, statusBar, splashScreen) {
-        // rootPage:any = LoginPage;
-        this.rootPage = __WEBPACK_IMPORTED_MODULE_0__pages_survey_each_survey_each__["a" /* SurveyEachPage */];
+        this.rootPage = __WEBPACK_IMPORTED_MODULE_0__pages_login_login__["a" /* LoginPage */];
         platform.ready().then(function () {
             // Okay, so the platform is ready and our plugins are available.
             // Here you can do any higher level native things you might need.
@@ -1148,9 +1169,10 @@ var MyApp = (function () {
     MyApp = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["m" /* Component */])({template:/*ion-inline-start:"/Users/kaaro/Desktop/src/ionic-3-firestore/src/app/app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n'/*ion-inline-end:"/Users/kaaro/Desktop/src/ionic-3-firestore/src/app/app.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["h" /* Platform */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_4__ionic_native_splash_screen__["a" /* SplashScreen */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["h" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["h" /* Platform */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__ionic_native_status_bar__["a" /* StatusBar */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ionic_native_status_bar__["a" /* StatusBar */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__ionic_native_splash_screen__["a" /* SplashScreen */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__ionic_native_splash_screen__["a" /* SplashScreen */]) === "function" && _c || Object])
     ], MyApp);
     return MyApp;
+    var _a, _b, _c;
 }());
 
 //# sourceMappingURL=app.component.js.map
@@ -1516,9 +1538,17 @@ var SurveyEachPage = (function () {
     SurveyEachPage.prototype.ionViewDidLoad = function () {
         console.log('ionViewDidLoad SurveyEachPage');
         console.log(this.totalQuestionBank);
+        this.initSurveyOnDB();
         this.nextQuestion();
     };
     SurveyEachPage.prototype.getImageFromCamera = function () {
+    };
+    SurveyEachPage.prototype.initSurveyOnDB = function () {
+        var _this = this;
+        this.surveyService.createNewSurvey(this._survey)
+            .then(function (res) {
+            _this._survey = res;
+        });
     };
     SurveyEachPage.prototype.nextQuestion = function () {
         if (this.currentQuestionIndex < this.totalQuestionBank.length) {
@@ -1531,6 +1561,9 @@ var SurveyEachPage = (function () {
     };
     SurveyEachPage.prototype.saveAnswerFromUser = function (ans) {
         console.log(ans);
+        this.currentQuestion.answer = ans;
+        this._survey.questions.push(this.currentQuestion);
+        this.surveyService.updateSurvey(this._survey);
         this.nextQuestion();
     };
     SurveyEachPage = __decorate([

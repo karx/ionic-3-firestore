@@ -40,10 +40,17 @@ export class SurveyEachPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad SurveyEachPage');
     console.log(this.totalQuestionBank);
+    this.initSurveyOnDB();
     this.nextQuestion();
   }
   getImageFromCamera() {
 
+  }
+  initSurveyOnDB() {
+    this.surveyService.createNewSurvey(this._survey)
+      .then( (res) => {
+        this._survey = res;
+      });
   }
 
   nextQuestion() {
@@ -57,6 +64,9 @@ export class SurveyEachPage {
 
   saveAnswerFromUser(ans: string) {
     console.log(ans);
+    this.currentQuestion.answer = ans;
+    this._survey.questions.push(this.currentQuestion);
+    this.surveyService.updateSurvey(this._survey);
     this.nextQuestion();
   }
 

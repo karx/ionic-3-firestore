@@ -10,8 +10,8 @@ import { BikerPage } from '../pages/biker/biker';
   templateUrl: 'app.html'
 })
 export class MyApp {
-  // rootPage:any = LoginPage;
-  rootPage:any = SurveyEachPage;
+  rootPage:any = LoginPage;
+  // rootPage:any = SurveyEachPage;
 
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
