@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
-import { EachQuestionComponent } from './each-question/each-question';
+// import { EachQuestionComponent } from './each-question/each-question';
 @NgModule({
-	declarations: [EachQuestionComponent],
+	declarations: [],
 	imports: [],
-	exports: [EachQuestionComponent]
+	exports: []
 })
 export class ComponentsModule {}

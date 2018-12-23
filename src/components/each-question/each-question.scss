@@ -1,19 +1,9 @@
 each-question {
 
-  #q-cont {
-    width: 400%;
-    height: 300px;
-    position: absolute;
-    top: 50%;
-    left: 0px;
-    transform: translateY(-150px);
-    transition: 0.5s 500ms;
-  }
+
   .slide {
-    height: 100%;
-    width: 25%;
+    // height: 100%;
     padding: 30px;
-    display: inline-block;
     vertical-align: top;
     border-left: solid 30px #ddd;
     border-right: solid 30px #ddd;
@@ -28,11 +18,14 @@ each-question {
     content: "Q. ";
   }
   .options {
-    width: 350px;
-    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    // margin: 10px;
   }
   .op, .re {
-    margin-top: 20px;
+    margin: 10px;
     display: inline-block;
     line-height: 3em;
     text-align: center;
@@ -58,5 +51,12 @@ each-question {
     text-align: center;
     padding-top: 30px;
     font-size: 3em;
+  }
+
+  .text-input{
+    display: flex;
+    // align-items: center;
+    // justify-items: center;
+    justify-content: center;
   }
 }

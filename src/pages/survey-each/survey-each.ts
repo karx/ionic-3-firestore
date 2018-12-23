@@ -23,6 +23,9 @@ export class SurveyEachPage {
   public _survey: Survey;
   public isNew: boolean;
   public totalQuestionBank: Question[] = questionBank;
+  public currentQuestion: Question;
+  public currentQuestionIndex = 0;
+  public surveyEnded = false;
 
   constructor(
     public navCtrl: NavController,
@@ -37,9 +40,24 @@ export class SurveyEachPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad SurveyEachPage');
     console.log(this.totalQuestionBank);
+    this.nextQuestion();
   }
   getImageFromCamera() {
 
+  }
+
+  nextQuestion() {
+    if(this.currentQuestionIndex < this.totalQuestionBank.length) {
+      this.currentQuestion = this.totalQuestionBank[this.currentQuestionIndex++];
+    } else {
+      this.surveyEnded = true;
+      console.log(this.surveyEnded);
+    }
+  }
+
+  saveAnswerFromUser(ans: string) {
+    console.log(ans);
+    this.nextQuestion();
   }
 
 

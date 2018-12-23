@@ -1,3 +1,5 @@
+import { EachQuestionComponent } from './../components/each-question/each-question';
+import { ComponentsModule } from './../components/components.module';
 import { SurveyEachPage } from './../pages/survey-each/survey-each';
 import { SurveyPage } from './../pages/survey/survey';
 import { LoginPage } from './../pages/login/login';
@@ -33,7 +35,8 @@ import { QuestionBankProvider } from '../providers/question-bank/question-bank';
     BikerPage,
     LoginPage,
     SurveyPage,
-    SurveyEachPage
+    SurveyEachPage,
+    EachQuestionComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +45,8 @@ import { QuestionBankProvider } from '../providers/question-bank/question-bank';
     AngularFireModule.initializeApp(ENV.firebase),
     AngularFirestoreModule.enablePersistence(),
     AngularFireAuthModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    ComponentsModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -51,7 +55,8 @@ import { QuestionBankProvider } from '../providers/question-bank/question-bank';
     BikerPage,
     LoginPage,
     SurveyPage,
-    SurveyEachPage
+    SurveyEachPage,
+    EachQuestionComponent
   ],
   providers: [
     StatusBar,

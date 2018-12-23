@@ -19,43 +19,21 @@
     <ion-icon name="camera"></ion-icon>
   </button>
   <ion-list>
-    <ion-item *ngFor="let eachQuestion of totalQuestionBank">
-      <ion-card>
+    <!-- <div *ngFor="let eachQuestion of totalQuestionBank"> -->
+
         <!-- <img src="img/nin-live.png" /> -->
-        <ion-card-content>
-          <ion-card-title>
-            {{eachQuestion.phrase}}
-          </ion-card-title>
-          <div class="answer">
-            <input
-              [(ngModel)]="eachQuestion.answer"
-              *ngIf="eachQuestion.input_type === 'text'">
+        <div class="if-questions" *ngIf="!surveyEnded" >
+          <each-question
+          [question]="currentQuestion"
+          (answerFromUser)="saveAnswerFromUser($event)"
+        ></each-question>
+        </div>
+        <div class="survey-done" *ngIf="surveyEnded" >
+          <h2>Survey Ended</h2>
+        </div>
 
-            <select
-              [(ngModel)]="eachQuestion.answer"
-              *ngIf="eachQuestion.input_type === 'option'">
-                <option *ngFor="let eachOption of eachQuestion.options" value="eachOption.value">
-                  {{eachOption.value}}
-                </option>
-            </select>
-            <!-- <ion-item>
-                <ion-label>Date</ion-label>
-                <ion-datetime
-                [(ngModel)]="eachQuestion.answer"
-                displayFormat="MM/DD/YYYY" >
-              </ion-datetime>
-            </ion-item> -->
-            <!-- <input
-            [(ngModel)]="eachQuestion.answer"
-            type="datetime-local"
-            *ngIf="eachQuestion.input_type === 'date'"
-            > -->
-            <!-- <ion-datetime displayFormat="MM/DD/YYYY" [(ngModelX)]="myDate"></ion-datetime> -->
 
-          </div>
-        </ion-card-content>
-      </ion-card>
 
-    </ion-item>
+    <!-- </div> -->
   </ion-list>
 </ion-content>

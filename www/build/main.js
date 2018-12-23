@@ -144,7 +144,7 @@ var RiderProvider = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ionic_angular__ = __webpack_require__(44);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_geolocation__ = __webpack_require__(270);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_device_motion__ = __webpack_require__(272);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__models_location__ = __webpack_require__(510);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__models_location__ = __webpack_require__(513);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_device__ = __webpack_require__(273);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__providers_riderlocation_riderlocation__ = __webpack_require__(274);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -285,7 +285,7 @@ var BikerPage = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(44);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_survey_survey__ = __webpack_require__(140);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__models_survey__ = __webpack_require__(502);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__models_survey__ = __webpack_require__(505);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__survey_each_survey_each__ = __webpack_require__(96);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -370,23 +370,23 @@ webpackEmptyAsyncContext.id = 217;
 
 var map = {
 	"../pages/biker/biker.module": [
-		545,
+		548,
 		4
 	],
 	"../pages/login/login.module": [
-		546,
+		549,
 		3
 	],
 	"../pages/manage-document/manage-document.module": [
-		547,
+		550,
 		0
 	],
 	"../pages/survey-each/survey-each.module": [
-		548,
+		551,
 		2
 	],
 	"../pages/survey/survey.module": [
-		549,
+		552,
 		1
 	]
 };
@@ -554,7 +554,7 @@ var LoginPage = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DatabaseProvider; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(275);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__(517);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__(520);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase__ = __webpack_require__(222);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_firebase__);
@@ -714,31 +714,33 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__pages_survey_each_survey_each__ = __webpack_require__(96);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__pages_survey_survey__ = __webpack_require__(178);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pages_login_login__ = __webpack_require__(327);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_platform_browser__ = __webpack_require__(53);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_common_http__ = __webpack_require__(275);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_ionic_angular__ = __webpack_require__(44);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_native_splash_screen__ = __webpack_require__(315);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_status_bar__ = __webpack_require__(316);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__app_component__ = __webpack_require__(536);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_home_home__ = __webpack_require__(537);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_biker_biker__ = __webpack_require__(177);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__agm_core__ = __webpack_require__(538);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__ionic_native_geolocation__ = __webpack_require__(270);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__ionic_native_device_motion__ = __webpack_require__(272);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__ionic_native_device__ = __webpack_require__(273);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__config_env__ = __webpack_require__(543);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__angular_fire__ = __webpack_require__(65);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__providers_riderlocation_riderlocation__ = __webpack_require__(274);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__angular_fire_firestore__ = __webpack_require__(72);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__angular_fire_auth__ = __webpack_require__(218);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__providers_auth_auth__ = __webpack_require__(64);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__providers_rider_rider__ = __webpack_require__(144);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__providers_survey_survey__ = __webpack_require__(140);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__providers_question_bank_question_bank__ = __webpack_require__(544);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_each_question_each_question__ = __webpack_require__(461);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_components_module__ = __webpack_require__(463);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pages_survey_each_survey_each__ = __webpack_require__(96);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_survey_survey__ = __webpack_require__(178);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_login_login__ = __webpack_require__(327);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_platform_browser__ = __webpack_require__(53);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_common_http__ = __webpack_require__(275);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_ionic_angular__ = __webpack_require__(44);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ionic_native_splash_screen__ = __webpack_require__(315);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__ionic_native_status_bar__ = __webpack_require__(316);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__app_component__ = __webpack_require__(539);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_home_home__ = __webpack_require__(540);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_biker_biker__ = __webpack_require__(177);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__agm_core__ = __webpack_require__(541);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__ionic_native_geolocation__ = __webpack_require__(270);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__ionic_native_device_motion__ = __webpack_require__(272);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__ionic_native_device__ = __webpack_require__(273);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__config_env__ = __webpack_require__(546);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__angular_fire__ = __webpack_require__(65);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__providers_riderlocation_riderlocation__ = __webpack_require__(274);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__angular_fire_firestore__ = __webpack_require__(72);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__angular_fire_auth__ = __webpack_require__(218);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__providers_auth_auth__ = __webpack_require__(64);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__providers_rider_rider__ = __webpack_require__(144);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__providers_survey_survey__ = __webpack_require__(140);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__providers_question_bank_question_bank__ = __webpack_require__(547);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -770,27 +772,30 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+
+
 var AppModule = (function () {
     function AppModule() {
     }
     AppModule = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_5__angular_core__["I" /* NgModule */])({
+        Object(__WEBPACK_IMPORTED_MODULE_7__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_9__app_component__["a" /* MyApp */],
-                __WEBPACK_IMPORTED_MODULE_10__pages_home_home__["a" /* HomePage */],
-                __WEBPACK_IMPORTED_MODULE_11__pages_biker_biker__["a" /* BikerPage */],
-                __WEBPACK_IMPORTED_MODULE_2__pages_login_login__["a" /* LoginPage */],
-                __WEBPACK_IMPORTED_MODULE_1__pages_survey_survey__["a" /* SurveyPage */],
-                __WEBPACK_IMPORTED_MODULE_0__pages_survey_each_survey_each__["a" /* SurveyEachPage */]
+                __WEBPACK_IMPORTED_MODULE_11__app_component__["a" /* MyApp */],
+                __WEBPACK_IMPORTED_MODULE_12__pages_home_home__["a" /* HomePage */],
+                __WEBPACK_IMPORTED_MODULE_13__pages_biker_biker__["a" /* BikerPage */],
+                __WEBPACK_IMPORTED_MODULE_4__pages_login_login__["a" /* LoginPage */],
+                __WEBPACK_IMPORTED_MODULE_3__pages_survey_survey__["a" /* SurveyPage */],
+                __WEBPACK_IMPORTED_MODULE_2__pages_survey_each_survey_each__["a" /* SurveyEachPage */],
+                __WEBPACK_IMPORTED_MODULE_0__components_each_question_each_question__["a" /* EachQuestionComponent */]
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_3__angular_platform_browser__["a" /* BrowserModule */],
-                __WEBPACK_IMPORTED_MODULE_4__angular_common_http__["b" /* HttpClientModule */],
-                __WEBPACK_IMPORTED_MODULE_12__agm_core__["a" /* AgmCoreModule */].forRoot(__WEBPACK_IMPORTED_MODULE_16__config_env__["a" /* ENV */].gmapsAPI),
-                __WEBPACK_IMPORTED_MODULE_17__angular_fire__["a" /* AngularFireModule */].initializeApp(__WEBPACK_IMPORTED_MODULE_16__config_env__["a" /* ENV */].firebase),
-                __WEBPACK_IMPORTED_MODULE_19__angular_fire_firestore__["b" /* AngularFirestoreModule */].enablePersistence(),
-                __WEBPACK_IMPORTED_MODULE_20__angular_fire_auth__["b" /* AngularFireAuthModule */],
-                __WEBPACK_IMPORTED_MODULE_6_ionic_angular__["d" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_9__app_component__["a" /* MyApp */], {}, {
+                __WEBPACK_IMPORTED_MODULE_5__angular_platform_browser__["a" /* BrowserModule */],
+                __WEBPACK_IMPORTED_MODULE_6__angular_common_http__["b" /* HttpClientModule */],
+                __WEBPACK_IMPORTED_MODULE_14__agm_core__["a" /* AgmCoreModule */].forRoot(__WEBPACK_IMPORTED_MODULE_18__config_env__["a" /* ENV */].gmapsAPI),
+                __WEBPACK_IMPORTED_MODULE_19__angular_fire__["a" /* AngularFireModule */].initializeApp(__WEBPACK_IMPORTED_MODULE_18__config_env__["a" /* ENV */].firebase),
+                __WEBPACK_IMPORTED_MODULE_21__angular_fire_firestore__["b" /* AngularFirestoreModule */].enablePersistence(),
+                __WEBPACK_IMPORTED_MODULE_22__angular_fire_auth__["b" /* AngularFireAuthModule */],
+                __WEBPACK_IMPORTED_MODULE_8_ionic_angular__["d" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_11__app_component__["a" /* MyApp */], {}, {
                     links: [
                         { loadChildren: '../pages/biker/biker.module#BikerPageModule', name: 'BikerPage', segment: 'biker', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
@@ -798,29 +803,31 @@ var AppModule = (function () {
                         { loadChildren: '../pages/survey-each/survey-each.module#SurveyEachPageModule', name: 'SurveyEachPage', segment: 'survey-each', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/survey/survey.module#SurveyPageModule', name: 'SurveyPage', segment: 'survey', priority: 'low', defaultHistory: [] }
                     ]
-                })
+                }),
+                __WEBPACK_IMPORTED_MODULE_1__components_components_module__["a" /* ComponentsModule */]
             ],
-            bootstrap: [__WEBPACK_IMPORTED_MODULE_6_ionic_angular__["b" /* IonicApp */]],
+            bootstrap: [__WEBPACK_IMPORTED_MODULE_8_ionic_angular__["b" /* IonicApp */]],
             entryComponents: [
-                __WEBPACK_IMPORTED_MODULE_9__app_component__["a" /* MyApp */],
-                __WEBPACK_IMPORTED_MODULE_10__pages_home_home__["a" /* HomePage */],
-                __WEBPACK_IMPORTED_MODULE_11__pages_biker_biker__["a" /* BikerPage */],
-                __WEBPACK_IMPORTED_MODULE_2__pages_login_login__["a" /* LoginPage */],
-                __WEBPACK_IMPORTED_MODULE_1__pages_survey_survey__["a" /* SurveyPage */],
-                __WEBPACK_IMPORTED_MODULE_0__pages_survey_each_survey_each__["a" /* SurveyEachPage */]
+                __WEBPACK_IMPORTED_MODULE_11__app_component__["a" /* MyApp */],
+                __WEBPACK_IMPORTED_MODULE_12__pages_home_home__["a" /* HomePage */],
+                __WEBPACK_IMPORTED_MODULE_13__pages_biker_biker__["a" /* BikerPage */],
+                __WEBPACK_IMPORTED_MODULE_4__pages_login_login__["a" /* LoginPage */],
+                __WEBPACK_IMPORTED_MODULE_3__pages_survey_survey__["a" /* SurveyPage */],
+                __WEBPACK_IMPORTED_MODULE_2__pages_survey_each_survey_each__["a" /* SurveyEachPage */],
+                __WEBPACK_IMPORTED_MODULE_0__components_each_question_each_question__["a" /* EachQuestionComponent */]
             ],
             providers: [
-                __WEBPACK_IMPORTED_MODULE_8__ionic_native_status_bar__["a" /* StatusBar */],
-                __WEBPACK_IMPORTED_MODULE_7__ionic_native_splash_screen__["a" /* SplashScreen */],
-                { provide: __WEBPACK_IMPORTED_MODULE_5__angular_core__["u" /* ErrorHandler */], useClass: __WEBPACK_IMPORTED_MODULE_6_ionic_angular__["c" /* IonicErrorHandler */] },
-                __WEBPACK_IMPORTED_MODULE_13__ionic_native_geolocation__["a" /* Geolocation */],
-                __WEBPACK_IMPORTED_MODULE_14__ionic_native_device_motion__["a" /* DeviceMotion */],
-                __WEBPACK_IMPORTED_MODULE_15__ionic_native_device__["a" /* Device */],
-                __WEBPACK_IMPORTED_MODULE_18__providers_riderlocation_riderlocation__["a" /* RiderlocationProvider */],
-                __WEBPACK_IMPORTED_MODULE_21__providers_auth_auth__["a" /* AuthProvider */],
-                __WEBPACK_IMPORTED_MODULE_22__providers_rider_rider__["a" /* RiderProvider */],
-                __WEBPACK_IMPORTED_MODULE_23__providers_survey_survey__["a" /* SurveyProvider */],
-                __WEBPACK_IMPORTED_MODULE_24__providers_question_bank_question_bank__["a" /* QuestionBankProvider */]
+                __WEBPACK_IMPORTED_MODULE_10__ionic_native_status_bar__["a" /* StatusBar */],
+                __WEBPACK_IMPORTED_MODULE_9__ionic_native_splash_screen__["a" /* SplashScreen */],
+                { provide: __WEBPACK_IMPORTED_MODULE_7__angular_core__["u" /* ErrorHandler */], useClass: __WEBPACK_IMPORTED_MODULE_8_ionic_angular__["c" /* IonicErrorHandler */] },
+                __WEBPACK_IMPORTED_MODULE_15__ionic_native_geolocation__["a" /* Geolocation */],
+                __WEBPACK_IMPORTED_MODULE_16__ionic_native_device_motion__["a" /* DeviceMotion */],
+                __WEBPACK_IMPORTED_MODULE_17__ionic_native_device__["a" /* Device */],
+                __WEBPACK_IMPORTED_MODULE_20__providers_riderlocation_riderlocation__["a" /* RiderlocationProvider */],
+                __WEBPACK_IMPORTED_MODULE_23__providers_auth_auth__["a" /* AuthProvider */],
+                __WEBPACK_IMPORTED_MODULE_24__providers_rider_rider__["a" /* RiderProvider */],
+                __WEBPACK_IMPORTED_MODULE_25__providers_survey_survey__["a" /* SurveyProvider */],
+                __WEBPACK_IMPORTED_MODULE_26__providers_question_bank_question_bank__["a" /* QuestionBankProvider */]
             ]
         })
     ], AppModule);
@@ -832,6 +839,110 @@ var AppModule = (function () {
 /***/ }),
 
 /***/ 461:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EachQuestionComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__models_question__ = __webpack_require__(462);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+/**
+ * Generated class for the EachQuestionComponent component.
+ *
+ * See https://angular.io/api/core/Component for more info on Angular
+ * Components.
+ */
+var EachQuestionComponent = (function () {
+    function EachQuestionComponent() {
+        this.answerFromUser = new __WEBPACK_IMPORTED_MODULE_1__angular_core__["v" /* EventEmitter */]();
+        console.log(this.question);
+        console.log('Hello EachQuestionComponent Component');
+        this.text = 'Hello World';
+    }
+    EachQuestionComponent.prototype.optionClicked = function (answer) {
+        console.log(answer);
+        this.answerFromUser.emit(answer);
+        this.textAnswer = '';
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["D" /* Input */])(),
+        __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__models_question__["a" /* Question */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__models_question__["a" /* Question */]) === "function" && _a || Object)
+    ], EachQuestionComponent.prototype, "question", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["O" /* Output */])(),
+        __metadata("design:type", Object)
+    ], EachQuestionComponent.prototype, "answerFromUser", void 0);
+    EachQuestionComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["m" /* Component */])({
+            selector: 'each-question',template:/*ion-inline-start:"/Users/kaaro/Desktop/src/ionic-3-firestore/src/components/each-question/each-question.html"*/'<div id="q-cont" *ngIf="question" >\n  <div class="slide">\n    <div class="question">\n      {{question.phrase}}\n    </div>\n    <div class="input-div" [ngSwitch]="question.input_type">\n\n        <div  class="options" *ngSwitchCase="\'option\'">\n\n            <div\n              class="op"\n              *ngFor="let eachAns of question.options"\n              (click)="optionClicked(eachAns.value)"\n            >\n              {{eachAns.value}}\n            </div>\n\n        </div>\n        <div *ngSwitchCase="\'text\'" class="text-input">\n          <input type="text" [(ngModel)]="textAnswer" (keydown.enter)="optionClicked(textAnswer)">\n          <button ion-button color="success" (click)="optionClicked(textAnswer)">Submit</button>\n\n        </div>\n\n        <div *ngSwitchDefault class="text-input">\n          <input type="text" [(ngModel)]="textAnswer" (keydown.enter)="optionClicked(textAnswer)">\n          <button ion-button color="success" (click)="optionClicked(textAnswer)">Submit</button>\n\n        </div>\n    </div>\n\n    <button ion-button color="light" (click)="optionClicked(\'skipped\')">Skip</button>\n  </div>\n</div>\n'/*ion-inline-end:"/Users/kaaro/Desktop/src/ionic-3-firestore/src/components/each-question/each-question.html"*/
+        }),
+        __metadata("design:paramtypes", [])
+    ], EachQuestionComponent);
+    return EachQuestionComponent;
+    var _a;
+}());
+
+//# sourceMappingURL=each-question.js.map
+
+/***/ }),
+
+/***/ 462:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Question; });
+var Question = (function () {
+    function Question() {
+    }
+    return Question;
+}());
+
+//# sourceMappingURL=question.js.map
+
+/***/ }),
+
+/***/ 463:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ComponentsModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+// import { EachQuestionComponent } from './each-question/each-question';
+var ComponentsModule = (function () {
+    function ComponentsModule() {
+    }
+    ComponentsModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
+            declarations: [],
+            imports: [],
+            exports: []
+        })
+    ], ComponentsModule);
+    return ComponentsModule;
+}());
+
+//# sourceMappingURL=components.module.js.map
+
+/***/ }),
+
+/***/ 464:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -969,7 +1080,7 @@ var questionBank = [
 
 /***/ }),
 
-/***/ 502:
+/***/ 505:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -984,7 +1095,7 @@ var Survey = (function () {
 
 /***/ }),
 
-/***/ 510:
+/***/ 513:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -999,7 +1110,7 @@ var HiLocation = (function () {
 
 /***/ }),
 
-/***/ 536:
+/***/ 539:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1046,7 +1157,7 @@ var MyApp = (function () {
 
 /***/ }),
 
-/***/ 537:
+/***/ 540:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1225,7 +1336,7 @@ var HomePage = (function () {
 
 /***/ }),
 
-/***/ 543:
+/***/ 546:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1248,7 +1359,7 @@ var ENV = {
 
 /***/ }),
 
-/***/ 544:
+/***/ 547:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1365,7 +1476,7 @@ var AuthProvider = (function () {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SurveyEachPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__config_questionbank__ = __webpack_require__(461);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__config_questionbank__ = __webpack_require__(464);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_auth_auth__ = __webpack_require__(64);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(44);
@@ -1397,25 +1508,39 @@ var SurveyEachPage = (function () {
         this.authService = authService;
         this.surveyService = surveyService;
         this.totalQuestionBank = __WEBPACK_IMPORTED_MODULE_0__config_questionbank__["a" /* questionBank */];
+        this.currentQuestionIndex = 0;
+        this.surveyEnded = false;
         this._survey = this.navParams.get('survey');
         this.isNew = this.navParams.get('isNew');
     }
     SurveyEachPage.prototype.ionViewDidLoad = function () {
         console.log('ionViewDidLoad SurveyEachPage');
         console.log(this.totalQuestionBank);
+        this.nextQuestion();
     };
     SurveyEachPage.prototype.getImageFromCamera = function () {
     };
+    SurveyEachPage.prototype.nextQuestion = function () {
+        if (this.currentQuestionIndex < this.totalQuestionBank.length) {
+            this.currentQuestion = this.totalQuestionBank[this.currentQuestionIndex++];
+        }
+        else {
+            this.surveyEnded = true;
+            console.log(this.surveyEnded);
+        }
+    };
+    SurveyEachPage.prototype.saveAnswerFromUser = function (ans) {
+        console.log(ans);
+        this.nextQuestion();
+    };
     SurveyEachPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["m" /* Component */])({
-            selector: 'page-survey-each',template:/*ion-inline-start:"/Users/kaaro/Desktop/src/ionic-3-firestore/src/pages/survey-each/survey-each.html"*/'<!--\n  Generated template for the SurveyEachPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Live-Collection Room</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <button ion-button icon-end (click)="getImageFromCamera()">\n    Add Image\n    <ion-icon name="camera"></ion-icon>\n  </button>\n  <ion-list>\n    <ion-item *ngFor="let eachQuestion of totalQuestionBank">\n      <ion-card>\n        <!-- <img src="img/nin-live.png" /> -->\n        <ion-card-content>\n          <ion-card-title>\n            {{eachQuestion.phrase}}\n          </ion-card-title>\n          <div class="answer">\n            <input\n              [(ngModel)]="eachQuestion.answer"\n              *ngIf="eachQuestion.input_type === \'text\'">\n\n            <select\n              [(ngModel)]="eachQuestion.answer"\n              *ngIf="eachQuestion.input_type === \'option\'">\n                <option *ngFor="let eachOption of eachQuestion.options" value="eachOption.value">\n                  {{eachOption.value}}\n                </option>\n            </select>\n            <!-- <ion-item>\n                <ion-label>Date</ion-label>\n                <ion-datetime\n                [(ngModel)]="eachQuestion.answer"\n                displayFormat="MM/DD/YYYY" >\n              </ion-datetime>\n            </ion-item> -->\n            <!-- <input\n            [(ngModel)]="eachQuestion.answer"\n            type="datetime-local"\n            *ngIf="eachQuestion.input_type === \'date\'"\n            > -->\n            <!-- <ion-datetime displayFormat="MM/DD/YYYY" [(ngModelX)]="myDate"></ion-datetime> -->\n\n          </div>\n        </ion-card-content>\n      </ion-card>\n\n    </ion-item>\n  </ion-list>\n</ion-content>\n'/*ion-inline-end:"/Users/kaaro/Desktop/src/ionic-3-firestore/src/pages/survey-each/survey-each.html"*/,
+            selector: 'page-survey-each',template:/*ion-inline-start:"/Users/kaaro/Desktop/src/ionic-3-firestore/src/pages/survey-each/survey-each.html"*/'<!--\n  Generated template for the SurveyEachPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Live-Collection Room</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <button ion-button icon-end (click)="getImageFromCamera()">\n    Add Image\n    <ion-icon name="camera"></ion-icon>\n  </button>\n  <ion-list>\n    <!-- <div *ngFor="let eachQuestion of totalQuestionBank"> -->\n\n        <!-- <img src="img/nin-live.png" /> -->\n        <div class="if-questions" *ngIf="!surveyEnded" >\n          <each-question\n          [question]="currentQuestion"\n          (answerFromUser)="saveAnswerFromUser($event)"\n        ></each-question>\n        </div>\n        <div class="survey-done" *ngIf="surveyEnded" >\n          <h2>Survey Ended</h2>\n        </div>\n\n\n\n    <!-- </div> -->\n  </ion-list>\n</ion-content>\n'/*ion-inline-end:"/Users/kaaro/Desktop/src/ionic-3-firestore/src/pages/survey-each/survey-each.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3_ionic_angular__["f" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["g" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_1__providers_auth_auth__["a" /* AuthProvider */],
-            __WEBPACK_IMPORTED_MODULE_4__providers_survey_survey__["a" /* SurveyProvider */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["g" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["g" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__providers_auth_auth__["a" /* AuthProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__providers_auth_auth__["a" /* AuthProvider */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4__providers_survey_survey__["a" /* SurveyProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__providers_survey_survey__["a" /* SurveyProvider */]) === "function" && _d || Object])
     ], SurveyEachPage);
     return SurveyEachPage;
+    var _a, _b, _c, _d;
 }());
 
 //# sourceMappingURL=survey-each.js.map

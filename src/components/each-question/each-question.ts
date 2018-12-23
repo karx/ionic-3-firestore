@@ -1,5 +1,5 @@
 import { Question } from './../../models/question';
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 /**
  * Generated class for the EachQuestionComponent component.
@@ -14,11 +14,19 @@ import { Component, Input } from '@angular/core';
 export class EachQuestionComponent {
 
   @Input() question: Question;
+  @Output() answerFromUser = new EventEmitter();
   text: string;
+  public textAnswer: string;
 
   constructor() {
+    console.log(this.question);
     console.log('Hello EachQuestionComponent Component');
     this.text = 'Hello World';
+  }
+  optionClicked(answer: string) {
+    console.log(answer);
+    this.answerFromUser.emit(answer);
+    this.textAnswer = '';
   }
 
 }
