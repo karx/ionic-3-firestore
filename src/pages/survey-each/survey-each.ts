@@ -1,5 +1,5 @@
+import { Question } from './../../models/question';
 import { questionBank } from './../../config/questionbank';
-import { QuestionBankProvider } from './../../providers/question-bank/question-bank';
 import { AuthProvider } from './../../providers/auth/auth';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
@@ -22,7 +22,7 @@ export class SurveyEachPage {
 
   public _survey: Survey;
   public isNew: boolean;
-  public totalQuestionBank = questionBank;
+  public totalQuestionBank: Question[] = questionBank;
 
   constructor(
     public navCtrl: NavController,

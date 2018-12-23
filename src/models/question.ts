@@ -1,6 +1,8 @@
 export class Question {
-  questionId: string;
+  question_id: string;
   phrase: string;
-  options = [];
-  option_selected: string;
+  input_type: string;
+  options?: any[];
+  // option_selected: string;
+  answer?: string;
 }

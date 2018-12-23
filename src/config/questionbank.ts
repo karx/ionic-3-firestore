@@ -1,4 +1,5 @@
-export const questionBank = [
+import { Question } from './../models/question';
+export const questionBank: Question[] = [
     {
         question_id: 'm2-01',
         phrase : "Please type your Colony Name, and District.",
