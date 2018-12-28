@@ -24,8 +24,25 @@ export class AuthProvider {
       console.log(this.user);
     });
   }
-  login() {
-    return this.afAuth.auth.signInWithPopup(new auth.GoogleAuthProvider());
+  login(): Promise<any> {
+    if (!(<any>window).cordova) {
+      return this.afAuth.auth.signInWithPopup(new auth.GoogleAuthProvider());
+    } else {
+      return this.afAuth.auth.signInWithRedirect(new auth.GoogleAuthProvider())
+      .then(() => {
+        return this.afAuth.auth.getRedirectResult().then( (result: any) => {
+          // This gives you a Google Access Token.
+          // You can use it to access the Google API.
+          let token = result.credential.accessToken;
+          // The signed-in user info.
+          let user = result.user;
+          console.log(token, user);
+        }).catch(function(error) {
+          // Handle Errors here.
+          alert(error.message);
+        });
+      });
+  }
   }
   getLoggedInStatus(): boolean {
     console.log(this.user);
