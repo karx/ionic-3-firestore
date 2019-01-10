@@ -210,7 +210,7 @@ var SurveyEachPage = (function () {
     };
     SurveyEachPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["m" /* Component */])({
-            selector: 'page-survey-each',template:/*ion-inline-start:"/Users/kaaro/Desktop/src/ionic-3-firestore/src/pages/survey-each/survey-each.html"*/'<!--\n  Generated template for the SurveyEachPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Live-Collection Room</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <button ion-button icon-end (click)="getImageFromCamera()">\n    Add Image\n    <ion-icon name="camera"></ion-icon>\n  </button>\n  <ion-list>\n    <!-- <div *ngFor="let eachQuestion of totalQuestionBank"> -->\n\n        <!-- <img src="img/nin-live.png" /> -->\n        <div class="if-questions" *ngIf="!surveyEnded" >\n          <each-question\n          [question]="currentQuestion"\n          (answerFromUser)="saveAnswerFromUser($event)"\n        ></each-question>\n        </div>\n        <div class="survey-done" *ngIf="surveyEnded" >\n          <h2>Survey Ended</h2>\n        </div>\n\n\n\n    <!-- </div> -->\n  </ion-list>\n</ion-content>\n'/*ion-inline-end:"/Users/kaaro/Desktop/src/ionic-3-firestore/src/pages/survey-each/survey-each.html"*/,
+            selector: 'page-survey-each',template:/*ion-inline-start:"D:\gitrepos\HI_app\src\pages\survey-each\survey-each.html"*/'<!--\n  Generated template for the SurveyEachPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Live-Collection Room</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <button ion-button icon-end (click)="getImageFromCamera()">\n    Add Image\n    <ion-icon name="camera"></ion-icon>\n  </button>\n  <ion-list>\n    <!-- <div *ngFor="let eachQuestion of totalQuestionBank"> -->\n\n        <!-- <img src="img/nin-live.png" /> -->\n        <div class="if-questions" *ngIf="!surveyEnded" >\n          <each-question\n          [question]="currentQuestion"\n          (answerFromUser)="saveAnswerFromUser($event)"\n        ></each-question>\n        </div>\n        <div class="survey-done" *ngIf="surveyEnded" >\n          <h2>Survey Ended</h2>\n        </div>\n\n\n\n    <!-- </div> -->\n  </ion-list>\n</ion-content>\n'/*ion-inline-end:"D:\gitrepos\HI_app\src\pages\survey-each\survey-each.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3_ionic_angular__["f" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["g" /* NavParams */],
@@ -350,7 +350,7 @@ var BikerPage = (function () {
     };
     BikerPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_3__angular_core__["m" /* Component */])({
-            selector: 'page-biker',template:/*ion-inline-start:"/Users/kaaro/Desktop/src/ionic-3-firestore/src/pages/biker/biker.html"*/'<!--\n  Generated template for the BikerPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title> Biker Page : {{_user?.displayName || _user?.email}}</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <ion-fab bottom right>\n    <button ion-fab mini (click)="startSurvey()">\n      <ion-icon name="add"></ion-icon>\n    </button>\n  </ion-fab>\n  <agm-map [latitude]="_currentLocn?.lat" [longitude]="_currentLocn?.lng">\n    <agm-marker *ngIf="_currentLocn" [latitude]="_currentLocn.lat" [longitude]="_currentLocn.lng"></agm-marker>\n    <agm-polyline>\n      <agm-polyline-point *ngFor="let hiLoc of totalPath" [latitude]="hiLoc.lat" [longitude]="hiLoc.lng">\n      </agm-polyline-point>\n    </agm-polyline>\n  </agm-map>\n</ion-content>\n'/*ion-inline-end:"/Users/kaaro/Desktop/src/ionic-3-firestore/src/pages/biker/biker.html"*/,
+            selector: 'page-biker',template:/*ion-inline-start:"D:\gitrepos\HI_app\src\pages\biker\biker.html"*/'<!--\n  Generated template for the BikerPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title> Biker Page : {{_user?.displayName || _user?.email}}</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <ion-fab bottom right>\n    <button ion-fab mini (click)="startSurvey()">\n      <ion-icon name="add"></ion-icon>\n    </button>\n  </ion-fab>\n  <agm-map [latitude]="_currentLocn?.lat" [longitude]="_currentLocn?.lng">\n    <agm-marker *ngIf="_currentLocn" [latitude]="_currentLocn.lat" [longitude]="_currentLocn.lng"></agm-marker>\n    <agm-polyline>\n      <agm-polyline-point *ngFor="let hiLoc of totalPath" [latitude]="hiLoc.lat" [longitude]="hiLoc.lng">\n      </agm-polyline-point>\n    </agm-polyline>\n  </agm-map>\n</ion-content>\n'/*ion-inline-end:"D:\gitrepos\HI_app\src\pages\biker\biker.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4_ionic_angular__["f" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["g" /* NavParams */],
@@ -426,7 +426,7 @@ var SurveyPage = (function () {
     };
     SurveyPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["m" /* Component */])({
-            selector: 'page-survey',template:/*ion-inline-start:"/Users/kaaro/Desktop/src/ionic-3-firestore/src/pages/survey/survey.html"*/'<!--\n  Generated template for the SurveyPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Happiness Questionare</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n    <button ion-button full (click)="startNewBtnClick()">Start new</button>\n    <ion-list>\n        <ion-item *ngFor="let eachSurvey of allSurveys" >\n          <ion-avatar item-start>\n            <!-- <img src="img/avatar-finn.png"> -->\n          </ion-avatar>\n          <h2>{{eachSurvey.person?.name || \'Unamed Questionare\'}}</h2>\n          <h3>{{eachSurvey.questions ? eachSurvey.questions.length : \'No Questions answered\'}}</h3>\n          <p>Recorded at: {{eachSurvey.timestamp}}</p>\n        </ion-item>\n      </ion-list>\n</ion-content>\n'/*ion-inline-end:"/Users/kaaro/Desktop/src/ionic-3-firestore/src/pages/survey/survey.html"*/,
+            selector: 'page-survey',template:/*ion-inline-start:"D:\gitrepos\HI_app\src\pages\survey\survey.html"*/'<!--\n  Generated template for the SurveyPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Happiness Questionare</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n    <button ion-button full (click)="startNewBtnClick()">Start new</button>\n    <ion-list>\n        <ion-item *ngFor="let eachSurvey of allSurveys" >\n          <ion-avatar item-start>\n            <!-- <img src="img/avatar-finn.png"> -->\n          </ion-avatar>\n          <h2>{{eachSurvey.person?.name || \'Unamed Questionare\'}}</h2>\n          <h3>{{eachSurvey.questions ? eachSurvey.questions.length : \'No Questions answered\'}}</h3>\n          <p>Recorded at: {{eachSurvey.timestamp}}</p>\n        </ion-item>\n      </ion-list>\n</ion-content>\n'/*ion-inline-end:"D:\gitrepos\HI_app\src\pages\survey\survey.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* NavParams */],
@@ -507,7 +507,7 @@ var LoginPage = (function () {
     };
     LoginPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["m" /* Component */])({
-            selector: 'page-login',template:/*ion-inline-start:"/Users/kaaro/Desktop/src/ionic-3-firestore/src/pages/login/login.html"*/'<!--\n  Generated template for the LoginPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>login</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <button (click)="attemptLogin()"> Login With Google </button>\n</ion-content>\n'/*ion-inline-end:"/Users/kaaro/Desktop/src/ionic-3-firestore/src/pages/login/login.html"*/,
+            selector: 'page-login',template:/*ion-inline-start:"D:\gitrepos\HI_app\src\pages\login\login.html"*/'<!--\n  Generated template for the LoginPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>login</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <button (click)="attemptLogin()"> Login With Google </button>\n</ion-content>\n'/*ion-inline-end:"D:\gitrepos\HI_app\src\pages\login\login.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3_ionic_angular__["f" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["g" /* NavParams */],
@@ -547,7 +547,7 @@ var map = {
 		4
 	],
 	"../pages/login/login.module": [
-		551,
+		552,
 		3
 	],
 	"../pages/manage-document/manage-document.module": [
@@ -555,11 +555,11 @@ var map = {
 		0
 	],
 	"../pages/survey-each/survey-each.module": [
-		552,
+		553,
 		2
 	],
 	"../pages/survey/survey.module": [
-		553,
+		551,
 		1
 	]
 };
@@ -893,9 +893,9 @@ var AppModule = (function () {
                     links: [
                         { loadChildren: '../pages/biker/biker.module#BikerPageModule', name: 'BikerPage', segment: 'biker', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/manage-document/manage-document.module#ManageDocumentPageModule', name: 'manage-document', segment: 'manage-document', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/survey/survey.module#SurveyPageModule', name: 'SurveyPage', segment: 'survey', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/survey-each/survey-each.module#SurveyEachPageModule', name: 'SurveyEachPage', segment: 'survey-each', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/survey/survey.module#SurveyPageModule', name: 'SurveyPage', segment: 'survey', priority: 'low', defaultHistory: [] }
+                        { loadChildren: '../pages/survey-each/survey-each.module#SurveyEachPageModule', name: 'SurveyEachPage', segment: 'survey-each', priority: 'low', defaultHistory: [] }
                     ]
                 }),
                 __WEBPACK_IMPORTED_MODULE_1__components_components_module__["a" /* ComponentsModule */]
@@ -991,7 +991,7 @@ var EachQuestionComponent = (function () {
     ], EachQuestionComponent.prototype, "answerFromUser", void 0);
     EachQuestionComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["m" /* Component */])({
-            selector: 'each-question',template:/*ion-inline-start:"/Users/kaaro/Desktop/src/ionic-3-firestore/src/components/each-question/each-question.html"*/'<div id="q-cont" *ngIf="question" >\n  <div class="slide">\n    <div class="question">\n      {{question.phrase}}\n    </div>\n    <div class="input-div" [ngSwitch]="question.input_type">\n\n        <div  class="options" *ngSwitchCase="\'option\'">\n\n            <div\n              class="op"\n              *ngFor="let eachAns of question.options"\n              (click)="optionClicked(eachAns.value)"\n            >\n              {{eachAns.value}}\n            </div>\n\n        </div>\n        <div *ngSwitchCase="\'text\'" class="text-input">\n          <input type="text" [(ngModel)]="textAnswer" (keydown.enter)="optionClicked(textAnswer)">\n          <button ion-button color="success" (click)="optionClicked(textAnswer)">Submit</button>\n\n        </div>\n\n        <div *ngSwitchDefault class="text-input">\n          <input type="text" [(ngModel)]="textAnswer" (keydown.enter)="optionClicked(textAnswer)">\n          <button ion-button color="success" (click)="optionClicked(textAnswer)">Submit</button>\n\n        </div>\n    </div>\n\n    <button ion-button color="light" (click)="optionClicked(\'skipped\')">Skip</button>\n  </div>\n</div>\n'/*ion-inline-end:"/Users/kaaro/Desktop/src/ionic-3-firestore/src/components/each-question/each-question.html"*/
+            selector: 'each-question',template:/*ion-inline-start:"D:\gitrepos\HI_app\src\components\each-question\each-question.html"*/'<div id="q-cont" *ngIf="question" >\n  <div class="slide">\n    <div class="question">\n      {{question.phrase}}\n    </div>\n    <div class="input-div" [ngSwitch]="question.input_type">\n\n        <div  class="options" *ngSwitchCase="\'option\'">\n\n            <div\n              class="op"\n              *ngFor="let eachAns of question.options"\n              (click)="optionClicked(eachAns.value)"\n            >\n              {{eachAns.value}}\n            </div>\n\n        </div>\n        <div *ngSwitchCase="\'text\'" class="text-input">\n          <input type="text" [(ngModel)]="textAnswer" (keydown.enter)="optionClicked(textAnswer)">\n          <button ion-button color="success" (click)="optionClicked(textAnswer)">Submit</button>\n\n        </div>\n\n        <div *ngSwitchDefault class="text-input">\n          <input type="text" [(ngModel)]="textAnswer" (keydown.enter)="optionClicked(textAnswer)">\n          <button ion-button color="success" (click)="optionClicked(textAnswer)">Submit</button>\n\n        </div>\n    </div>\n\n    <button ion-button color="light" (click)="optionClicked(\'skipped\')">Skip</button>\n  </div>\n</div>\n'/*ion-inline-end:"D:\gitrepos\HI_app\src\components\each-question\each-question.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__ionic_native_text_to_speech__["a" /* TextToSpeech */]])
     ], EachQuestionComponent);
@@ -1163,7 +1163,7 @@ var questionBank = [
     {
         question_id: 'm2-08',
         phrase: "Which of these durables do you currently have in your home?",
-        input_type: "multi",
+        input_type: "option",
         options: [
             { value: "Electricity Connection" },
             { value: "Air Conditioner" },
@@ -1179,6 +1179,95 @@ var questionBank = [
             { value: "Desktop Computer" },
             { value: "Tablet/Pads" },
             { value: "Agricultural Land (currently under cultivation or plantation)	" }
+        ]
+    },
+    {
+        question_id: 'm2-09',
+        phrase: "Thanks. Which of these durables do you currently have in your home?",
+        input_type: "option",
+        options: [
+            { value: "Electricity Connection" },
+            { value: "Air Conditioner" },
+            { value: "Car/Jeep/Van" },
+            { value: "Ceiling Fan" },
+            { value: "LPG Stove" },
+            { value: "Colour TV" },
+            { value: "Refrigerator" },
+            { value: "Washing Machine" },
+            { value: "Two Wheeler" },
+            { value: "Landline/Fixed Wireless Phone connection" },
+            { value: "Laptop Computer" },
+            { value: "Desktop Computer" },
+            { value: "Tablet/Pads" },
+            { value: "Agricultural Land (currently under cultivation or plantation)" }
+        ]
+    },
+    {
+        question_id: 'm2-10',
+        phrase: "Thanks. Which of these is the most expensive vehicle you currently have in your home?",
+        input_type: "option",
+        options: [
+            { value: "Bi-cycle" },
+            { value: "MUV/SUV (costing less than Rs. 12lakh)" },
+            { value: "Scooter/Motorcycle" },
+            { value: "Luxury Car/SUV (costing more than Rs. 18lakh)" },
+            { value: "Small Car (costing less than Rs. 4lakh)" },
+            { value: "Luxury Car/SUV (costing more than Rs. 25lakh)" },
+            { value: "Mid performance car (costing more than Rs. 6lakh)" },
+            { value: "Luxury Car/SUV (costing more than Rs. 50lakh)" },
+            { value: "Sedan (costing more than Rs. 10lakh)" },
+            { value: "None of the above" }
+        ]
+    },
+    {
+        question_id: 'm2-11',
+        phrase: "Thanks. Please select the approximate range of your “total monthly household income” of your household (putting together the income of all members sharing the same kitchen)? Where:",
+        input_type: "option",
+        options: [
+            { value: "Up to Rs.3,000" },
+            { value: "Rs.3,000 to Rs.6,250" },
+            { value: "Rs.6,250 to Rs.9,000" },
+            { value: "Rs.9,000 to Rs.12,500" },
+            { value: "Rs.12,500 to Rs.18,000" },
+            { value: "Rs.18,000 to Rs.25,000" },
+            { value: "Rs.25,000 to Rs.40,000" },
+            { value: "Rs.40,000 to Rs.60,000" },
+            { value: "Rs.60,000 to Rs.80,000" },
+            { value: "Rs.80,000 to Rs.1,00,000" },
+            { value: "Rs.1,00,000 to Rs. 2,00,000" },
+            { value: "Rs.2,00,000 to Rs. 3,00,000" },
+            { value: "Rs.3,00,000 to Rs. 5,00,00" },
+            { value: "More than Rs. 5,00,000" },
+            { value: "Don’t know/Can’t say" }
+        ]
+    },
+    {
+        question_id: 'm2-xx-1',
+        phrase: "Thanks for your cooperation. Now I know you better. Please type, “right”, “yes”, “OK’, “Yup”… I don’t understand the rest as a dumb bot, but I will soon learn from you and become smarter ☺",
+        input_type: "option",
+        options: [
+            { value: "Right" },
+            { value: "Yes" },
+            { value: "You are a dumb bot" },
+            { value: "Okay" },
+            { value: "None of the above" }
+        ]
+    },
+    {
+        question_id: 'm2-12',
+        phrase: "Thanks buddy. Now let’s talk about your Extrinsic Quality of Life at your locality (RWA/colony/apartment). How friendly and helpful do you find your neighbors currently?",
+        input_type: "option",
+        options: [
+            { value: "1" },
+            { value: "2" },
+            { value: "3" },
+            { value: "4" },
+            { value: "5" },
+            { value: "6" },
+            { value: "7" },
+            { value: "8" },
+            { value: "9" },
+            { value: "10" }
         ]
     }
 ];
@@ -1256,7 +1345,7 @@ var MyApp = (function () {
         });
     }
     MyApp = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["m" /* Component */])({template:/*ion-inline-start:"/Users/kaaro/Desktop/src/ionic-3-firestore/src/app/app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n'/*ion-inline-end:"/Users/kaaro/Desktop/src/ionic-3-firestore/src/app/app.html"*/
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["m" /* Component */])({template:/*ion-inline-start:"D:\gitrepos\HI_app\src\app\app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n'/*ion-inline-end:"D:\gitrepos\HI_app\src\app\app.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["h" /* Platform */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_4__ionic_native_splash_screen__["a" /* SplashScreen */]])
     ], MyApp);
@@ -1433,7 +1522,7 @@ var HomePage = (function () {
     };
     HomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-home',template:/*ion-inline-start:"/Users/kaaro/Desktop/src/ionic-3-firestore/src/pages/home/home.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n      Cloud Firestore\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n\n  <button\n    ion-button\n    block\n    color=\'primary\'\n    (click)=\'addDocument()\'>\n    Add a new record\n  </button>\n\n  <ion-list>\n    <ion-item *ngFor=\'let location of locations\'>\n      <h2>{{ location.city }}</h2>\n      <p>\n        Population: {{ location.population}}<br>\n        Established: {{ location.established }}\n      </p>\n\n      <button\n        ion-button\n        color=\'secondary\'\n        (click)=\'updateDocument(location)\'>\n        Update this record\n      </button>\n\n      <button\n        ion-button\n        color=\'danger\'\n        (click)="deleteDocument(location)">\n        Delete this record\n      </button>\n    </ion-item>\n  </ion-list>\n  <!-- <page-biker></page-biker> -->\n  \n</ion-content>\n'/*ion-inline-end:"/Users/kaaro/Desktop/src/ionic-3-firestore/src/pages/home/home.html"*/
+            selector: 'page-home',template:/*ion-inline-start:"D:\gitrepos\HI_app\src\pages\home\home.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n      Cloud Firestore\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n\n  <button\n    ion-button\n    block\n    color=\'primary\'\n    (click)=\'addDocument()\'>\n    Add a new record\n  </button>\n\n  <ion-list>\n    <ion-item *ngFor=\'let location of locations\'>\n      <h2>{{ location.city }}</h2>\n      <p>\n        Population: {{ location.population}}<br>\n        Established: {{ location.established }}\n      </p>\n\n      <button\n        ion-button\n        color=\'secondary\'\n        (click)=\'updateDocument(location)\'>\n        Update this record\n      </button>\n\n      <button\n        ion-button\n        color=\'danger\'\n        (click)="deleteDocument(location)">\n        Delete this record\n      </button>\n    </ion-item>\n  </ion-list>\n  <!-- <page-biker></page-biker> -->\n  \n</ion-content>\n'/*ion-inline-end:"D:\gitrepos\HI_app\src\pages\home\home.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_2__providers_database_database__["a" /* DatabaseProvider */],
@@ -1557,7 +1646,26 @@ var AuthProvider = (function () {
         });
     }
     AuthProvider.prototype.login = function () {
-        return this.afAuth.auth.signInWithPopup(new __WEBPACK_IMPORTED_MODULE_2_firebase__["auth"].GoogleAuthProvider());
+        var _this = this;
+        if (!window.cordova) {
+            return this.afAuth.auth.signInWithPopup(new __WEBPACK_IMPORTED_MODULE_2_firebase__["auth"].GoogleAuthProvider());
+        }
+        else {
+            return this.afAuth.auth.signInWithRedirect(new __WEBPACK_IMPORTED_MODULE_2_firebase__["auth"].GoogleAuthProvider())
+                .then(function () {
+                return _this.afAuth.auth.getRedirectResult().then(function (result) {
+                    // This gives you a Google Access Token.
+                    // You can use it to access the Google API.
+                    var token = result.credential.accessToken;
+                    // The signed-in user info.
+                    var user = result.user;
+                    console.log(token, user);
+                }).catch(function (error) {
+                    // Handle Errors here.
+                    alert(error.message);
+                });
+            });
+        }
     };
     AuthProvider.prototype.getLoggedInStatus = function () {
         console.log(this.user);
