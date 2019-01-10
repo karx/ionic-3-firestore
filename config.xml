@@ -97,4 +97,5 @@
     </universal-links>
     <plugin name="cordova-plugin-tts" spec="^0.2.3" />
     <engine name="android" spec="6.3.0" />
+    <plugin name="cordova-plugin-dbmeter" spec="2.1.0" />
 </widget>

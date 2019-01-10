@@ -28,6 +28,8 @@ import { RiderProvider } from '../providers/rider/rider';
 import { SurveyProvider } from '../providers/survey/survey';
 import { QuestionBankProvider } from '../providers/question-bank/question-bank';
 import { TextToSpeech } from '@ionic-native/text-to-speech';
+import { DBMeter } from '@ionic-native/db-meter';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -65,6 +67,7 @@ import { TextToSpeech } from '@ionic-native/text-to-speech';
     Geolocation,
     DeviceMotion,
     TextToSpeech,
+    DBMeter,
     Device,
     RiderlocationProvider,
     AuthProvider,

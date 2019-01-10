@@ -9,7 +9,8 @@ import { HiLocation } from '../../models/location';
 import { Device } from '@ionic-native/device';
 import { RiderlocationProvider } from '../../providers/riderlocation/riderlocation';
 import { User } from 'firebase';
-
+import { DBMeter } from '@ionic-native/db-meter';
+import { Subscriber } from 'rxjs';
 /**
  * Generated class for the BikerPage page.
  *
@@ -34,6 +35,8 @@ export class BikerPage {
   public _user: User;
   private _COLL: string = 'HiLocations';
 
+  private dbSubscription: any;
+
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
@@ -42,8 +45,8 @@ export class BikerPage {
     private device: Device,
     private riderLocationService: RiderlocationProvider,
     private authService: AuthProvider,
-    private riderService: RiderProvider
-
+    private riderService: RiderProvider,
+    private dbMeter: DBMeter
     ) {
   }
 
@@ -55,6 +58,25 @@ export class BikerPage {
       this._user_uid = this._user.uid;
     }
     this.initMap();
+    this.initDBListner();
+  }
+
+  initDBListner() {
+    this.dbSubscription = this.dbMeter.start().subscribe(
+      data => this.publishDBDate(data)
+    );
+  }
+
+  publishDBDate(dbData) {
+    console.log(dbData);
+    const dataToPush = Object.assign(dbData,
+      {
+        timestamp: new Date().toISOString(),
+        user_uid : this._user_uid,
+        device_uuid : this.device.uuid,
+        currentLocation: this._currentLocn
+      });
+
   }
 
   getHiLocation(coords: Coordinates) {
