@@ -1,14 +1,14 @@
 webpackJsonp([0],{
 
-/***/ 550:
+/***/ 554:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ManageDocumentPageModule", function() { return ManageDocumentPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(44);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__manage_document__ = __webpack_require__(554);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(45);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__manage_document__ = __webpack_require__(556);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -38,15 +38,15 @@ var ManageDocumentPageModule = (function () {
 
 /***/ }),
 
-/***/ 554:
+/***/ 556:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ManageDocumentPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__(30);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(44);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_database_database__ = __webpack_require__(329);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(45);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_database_database__ = __webpack_require__(331);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -215,7 +215,7 @@ var ManageDocumentPage = (function () {
     };
     ManageDocumentPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-manage-document',template:/*ion-inline-start:"D:\gitrepos\HI_app\src\pages\manage-document\manage-document.html"*/'<ion-header>\n\n  <ion-navbar>\n    <ion-title>{{ title }}</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <form\n    [formGroup]=\'form\'\n    (ngSubmit)=\'saveDocument(form.value)\'>\n\n    <ion-item>\n      <ion-label stacked>City:</ion-label>\n      <ion-input\n        type=\'text\'\n        formControlName=\'city\'\n        [(ngModel)]=\'city\'>\n      </ion-input>\n    </ion-item>\n\n    <ion-item>\n       <ion-label stacked>Population:</ion-label>\n       <ion-input\n          type="text"\n          formControlName="population"\n          [(ngModel)]="population"></ion-input>\n 	  </ion-item>\n\n    <ion-item>\n       <ion-label stacked>Established:</ion-label>\n       <ion-input\n          type="text"\n          formControlName="established"\n          [(ngModel)]="established"></ion-input>\n 	  </ion-item>\n\n 	  <ion-item>\n       <button\n         ion-button\n         block\n         color="primary"\n         text-center\n         padding-top\n         padding-bottom\n         [disabled]="!form.valid">\n          <div *ngIf="!isEditable">\n             Add a new document\n          </div>\n\n          <div *ngIf="isEditable">\n             Update this document\n          </div>\n          </button>\n 	  </ion-item>\n\n  </form>\n  \n</ion-content>\n'/*ion-inline-end:"D:\gitrepos\HI_app\src\pages\manage-document\manage-document.html"*/,
+            selector: 'page-manage-document',template:/*ion-inline-start:"D:\gitrepos\ionic-3-firestore\src\pages\manage-document\manage-document.html"*/'<ion-header>\n\n  <ion-navbar>\n    <ion-title>{{ title }}</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <form\n    [formGroup]=\'form\'\n    (ngSubmit)=\'saveDocument(form.value)\'>\n\n    <ion-item>\n      <ion-label stacked>City:</ion-label>\n      <ion-input\n        type=\'text\'\n        formControlName=\'city\'\n        [(ngModel)]=\'city\'>\n      </ion-input>\n    </ion-item>\n\n    <ion-item>\n       <ion-label stacked>Population:</ion-label>\n       <ion-input\n          type="text"\n          formControlName="population"\n          [(ngModel)]="population"></ion-input>\n 	  </ion-item>\n\n    <ion-item>\n       <ion-label stacked>Established:</ion-label>\n       <ion-input\n          type="text"\n          formControlName="established"\n          [(ngModel)]="established"></ion-input>\n 	  </ion-item>\n\n 	  <ion-item>\n       <button\n         ion-button\n         block\n         color="primary"\n         text-center\n         padding-top\n         padding-bottom\n         [disabled]="!form.valid">\n          <div *ngIf="!isEditable">\n             Add a new document\n          </div>\n\n          <div *ngIf="isEditable">\n             Update this document\n          </div>\n          </button>\n 	  </ion-item>\n\n  </form>\n  \n</ion-content>\n'/*ion-inline-end:"D:\gitrepos\ionic-3-firestore\src\pages\manage-document\manage-document.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* NavParams */],

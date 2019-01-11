@@ -29,6 +29,7 @@ import { SurveyProvider } from '../providers/survey/survey';
 import { QuestionBankProvider } from '../providers/question-bank/question-bank';
 import { TextToSpeech } from '@ionic-native/text-to-speech';
 import { DBMeter } from '@ionic-native/db-meter';
+import { Insomnia } from '@ionic-native/insomnia';
 
 @NgModule({
   declarations: [
@@ -73,7 +74,8 @@ import { DBMeter } from '@ionic-native/db-meter';
     AuthProvider,
     RiderProvider,
     SurveyProvider,
-    QuestionBankProvider
+    QuestionBankProvider,
+    Insomnia
   ]
 })
 export class AppModule {}

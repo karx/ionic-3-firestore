@@ -11,4 +11,6 @@ export class HiLocation {
     altitudeAccuracy: number;
     heading: number;
     speed: number;
+
+    n_data: any;
 }

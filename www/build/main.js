@@ -140,10 +140,10 @@ var RiderProvider = (function () {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SurveyEachPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__config_questionbank__ = __webpack_require__(472);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__config_questionbank__ = __webpack_require__(474);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_auth_auth__ = __webpack_require__(65);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(44);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(45);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_survey_survey__ = __webpack_require__(140);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -210,7 +210,7 @@ var SurveyEachPage = (function () {
     };
     SurveyEachPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["m" /* Component */])({
-            selector: 'page-survey-each',template:/*ion-inline-start:"D:\gitrepos\HI_app\src\pages\survey-each\survey-each.html"*/'<!--\n  Generated template for the SurveyEachPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Live-Collection Room</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <button ion-button icon-end (click)="getImageFromCamera()">\n    Add Image\n    <ion-icon name="camera"></ion-icon>\n  </button>\n  <ion-list>\n    <!-- <div *ngFor="let eachQuestion of totalQuestionBank"> -->\n\n        <!-- <img src="img/nin-live.png" /> -->\n        <div class="if-questions" *ngIf="!surveyEnded" >\n          <each-question\n          [question]="currentQuestion"\n          (answerFromUser)="saveAnswerFromUser($event)"\n        ></each-question>\n        </div>\n        <div class="survey-done" *ngIf="surveyEnded" >\n          <h2>Survey Ended</h2>\n        </div>\n\n\n\n    <!-- </div> -->\n  </ion-list>\n</ion-content>\n'/*ion-inline-end:"D:\gitrepos\HI_app\src\pages\survey-each\survey-each.html"*/,
+            selector: 'page-survey-each',template:/*ion-inline-start:"D:\gitrepos\ionic-3-firestore\src\pages\survey-each\survey-each.html"*/'<!--\n  Generated template for the SurveyEachPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Live-Collection Room</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <button ion-button icon-end (click)="getImageFromCamera()">\n    Add Image\n    <ion-icon name="camera"></ion-icon>\n  </button>\n  <ion-list>\n    <!-- <div *ngFor="let eachQuestion of totalQuestionBank"> -->\n\n        <!-- <img src="img/nin-live.png" /> -->\n        <div class="if-questions" *ngIf="!surveyEnded" >\n          <each-question\n          [question]="currentQuestion"\n          (answerFromUser)="saveAnswerFromUser($event)"\n        ></each-question>\n        </div>\n        <div class="survey-done" *ngIf="surveyEnded" >\n          <h2>Survey Ended</h2>\n        </div>\n\n\n\n    <!-- </div> -->\n  </ion-list>\n</ion-content>\n'/*ion-inline-end:"D:\gitrepos\ionic-3-firestore\src\pages\survey-each\survey-each.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3_ionic_angular__["f" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["g" /* NavParams */],
@@ -233,12 +233,14 @@ var SurveyEachPage = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_rider_rider__ = __webpack_require__(144);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_auth_auth__ = __webpack_require__(65);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ionic_angular__ = __webpack_require__(44);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ionic_angular__ = __webpack_require__(45);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_geolocation__ = __webpack_require__(273);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_device_motion__ = __webpack_require__(274);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__models_location__ = __webpack_require__(514);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__models_location__ = __webpack_require__(516);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_device__ = __webpack_require__(275);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__providers_riderlocation_riderlocation__ = __webpack_require__(276);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__ionic_native_db_meter__ = __webpack_require__(277);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__ionic_native_insomnia__ = __webpack_require__(278);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -258,6 +260,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+
 /**
  * Generated class for the BikerPage page.
  *
@@ -265,7 +269,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Ionic pages and navigation.
  */
 var BikerPage = (function () {
-    function BikerPage(navCtrl, navParams, geolocation, deviceMotion, device, riderLocationService, authService, riderService) {
+    function BikerPage(navCtrl, navParams, geolocation, deviceMotion, device, riderLocationService, authService, riderService, dbMeter, insomnia) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.geolocation = geolocation;
@@ -274,6 +278,8 @@ var BikerPage = (function () {
         this.riderLocationService = riderLocationService;
         this.authService = authService;
         this.riderService = riderService;
+        this.dbMeter = dbMeter;
+        this.insomnia = insomnia;
         this._user_uid = 'test';
         this._device_uuid = 'test';
         this.title = 'My first AGM project';
@@ -289,7 +295,24 @@ var BikerPage = (function () {
         if (this._user) {
             this._user_uid = this._user.uid;
         }
+        this.insomnia.keepAwake()
+            .then(function () { return console.log('success'); }, function () { return console.log('error'); });
         this.initMap();
+        this.initDBListner();
+    };
+    BikerPage.prototype.initDBListner = function () {
+        var _this = this;
+        this.dbSubscription = this.dbMeter.start().subscribe(function (data) { return _this.publishDBDate(data); });
+    };
+    BikerPage.prototype.publishDBDate = function (dbData) {
+        console.log(dbData);
+        var dataToPush = Object.assign(dbData, {
+            timestamp: new Date().toISOString(),
+            user_uid: this._user_uid,
+            device_uuid: this.device.uuid,
+            currentLocation: this._currentLocn
+        });
+        this.n_data = dataToPush;
     };
     BikerPage.prototype.getHiLocation = function (coords) {
         var returnLocation = new __WEBPACK_IMPORTED_MODULE_7__models_location__["a" /* HiLocation */]();
@@ -312,6 +335,10 @@ var BikerPage = (function () {
     BikerPage.prototype.getHistoricalData = function () {
     };
     BikerPage.prototype.logNewGeoData = function (location) {
+        if (this.n_data !== this.n_data_old) {
+            location.n_data = this.n_data;
+        }
+        this.n_data_old = this.n_data;
         this.totalPath.push(location);
         this.riderLocationService.pushHiLocations(location);
     };
@@ -350,7 +377,7 @@ var BikerPage = (function () {
     };
     BikerPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_3__angular_core__["m" /* Component */])({
-            selector: 'page-biker',template:/*ion-inline-start:"D:\gitrepos\HI_app\src\pages\biker\biker.html"*/'<!--\n  Generated template for the BikerPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title> Biker Page : {{_user?.displayName || _user?.email}}</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <ion-fab bottom right>\n    <button ion-fab mini (click)="startSurvey()">\n      <ion-icon name="add"></ion-icon>\n    </button>\n  </ion-fab>\n  <agm-map [latitude]="_currentLocn?.lat" [longitude]="_currentLocn?.lng">\n    <agm-marker *ngIf="_currentLocn" [latitude]="_currentLocn.lat" [longitude]="_currentLocn.lng"></agm-marker>\n    <agm-polyline>\n      <agm-polyline-point *ngFor="let hiLoc of totalPath" [latitude]="hiLoc.lat" [longitude]="hiLoc.lng">\n      </agm-polyline-point>\n    </agm-polyline>\n  </agm-map>\n</ion-content>\n'/*ion-inline-end:"D:\gitrepos\HI_app\src\pages\biker\biker.html"*/,
+            selector: 'page-biker',template:/*ion-inline-start:"D:\gitrepos\ionic-3-firestore\src\pages\biker\biker.html"*/'<!--\n  Generated template for the BikerPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title> Biker Page : {{_user?.displayName || _user?.email}}</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <ion-fab bottom right>\n    <button ion-fab mini (click)="startSurvey()">\n      <ion-icon name="add"></ion-icon>\n    </button>\n  </ion-fab>\n  <agm-map [latitude]="_currentLocn?.lat" [longitude]="_currentLocn?.lng">\n    <agm-marker *ngIf="_currentLocn" [latitude]="_currentLocn.lat" [longitude]="_currentLocn.lng"></agm-marker>\n    <agm-polyline>\n      <agm-polyline-point *ngFor="let hiLoc of totalPath" [latitude]="hiLoc.lat" [longitude]="hiLoc.lng">\n      </agm-polyline-point>\n    </agm-polyline>\n  </agm-map>\n</ion-content>\n'/*ion-inline-end:"D:\gitrepos\ionic-3-firestore\src\pages\biker\biker.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4_ionic_angular__["f" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["g" /* NavParams */],
@@ -359,7 +386,9 @@ var BikerPage = (function () {
             __WEBPACK_IMPORTED_MODULE_8__ionic_native_device__["a" /* Device */],
             __WEBPACK_IMPORTED_MODULE_9__providers_riderlocation_riderlocation__["a" /* RiderlocationProvider */],
             __WEBPACK_IMPORTED_MODULE_2__providers_auth_auth__["a" /* AuthProvider */],
-            __WEBPACK_IMPORTED_MODULE_1__providers_rider_rider__["a" /* RiderProvider */]])
+            __WEBPACK_IMPORTED_MODULE_1__providers_rider_rider__["a" /* RiderProvider */],
+            __WEBPACK_IMPORTED_MODULE_10__ionic_native_db_meter__["a" /* DBMeter */],
+            __WEBPACK_IMPORTED_MODULE_11__ionic_native_insomnia__["a" /* Insomnia */]])
     ], BikerPage);
     return BikerPage;
 }());
@@ -375,9 +404,9 @@ var BikerPage = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SurveyPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__providers_auth_auth__ = __webpack_require__(65);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(44);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(45);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_survey_survey__ = __webpack_require__(140);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__models_survey__ = __webpack_require__(513);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__models_survey__ = __webpack_require__(515);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__survey_each_survey_each__ = __webpack_require__(176);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -426,7 +455,7 @@ var SurveyPage = (function () {
     };
     SurveyPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["m" /* Component */])({
-            selector: 'page-survey',template:/*ion-inline-start:"D:\gitrepos\HI_app\src\pages\survey\survey.html"*/'<!--\n  Generated template for the SurveyPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Happiness Questionare</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n    <button ion-button full (click)="startNewBtnClick()">Start new</button>\n    <ion-list>\n        <ion-item *ngFor="let eachSurvey of allSurveys" >\n          <ion-avatar item-start>\n            <!-- <img src="img/avatar-finn.png"> -->\n          </ion-avatar>\n          <h2>{{eachSurvey.person?.name || \'Unamed Questionare\'}}</h2>\n          <h3>{{eachSurvey.questions ? eachSurvey.questions.length : \'No Questions answered\'}}</h3>\n          <p>Recorded at: {{eachSurvey.timestamp}}</p>\n        </ion-item>\n      </ion-list>\n</ion-content>\n'/*ion-inline-end:"D:\gitrepos\HI_app\src\pages\survey\survey.html"*/,
+            selector: 'page-survey',template:/*ion-inline-start:"D:\gitrepos\ionic-3-firestore\src\pages\survey\survey.html"*/'<!--\n  Generated template for the SurveyPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Happiness Questionare</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n    <button ion-button full (click)="startNewBtnClick()">Start new</button>\n    <ion-list>\n        <ion-item *ngFor="let eachSurvey of allSurveys" >\n          <ion-avatar item-start>\n            <!-- <img src="img/avatar-finn.png"> -->\n          </ion-avatar>\n          <h2>{{eachSurvey.person?.name || \'Unamed Questionare\'}}</h2>\n          <h3>{{eachSurvey.questions ? eachSurvey.questions.length : \'No Questions answered\'}}</h3>\n          <p>Recorded at: {{eachSurvey.timestamp}}</p>\n        </ion-item>\n      </ion-list>\n</ion-content>\n'/*ion-inline-end:"D:\gitrepos\ionic-3-firestore\src\pages\survey\survey.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* NavParams */],
@@ -448,7 +477,7 @@ var SurveyPage = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__biker_biker__ = __webpack_require__(177);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__providers_auth_auth__ = __webpack_require__(65);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(44);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(45);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_rider_rider__ = __webpack_require__(144);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -507,7 +536,7 @@ var LoginPage = (function () {
     };
     LoginPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["m" /* Component */])({
-            selector: 'page-login',template:/*ion-inline-start:"D:\gitrepos\HI_app\src\pages\login\login.html"*/'<!--\n  Generated template for the LoginPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>login</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <button (click)="attemptLogin()"> Login With Google </button>\n</ion-content>\n'/*ion-inline-end:"D:\gitrepos\HI_app\src\pages\login\login.html"*/,
+            selector: 'page-login',template:/*ion-inline-start:"D:\gitrepos\ionic-3-firestore\src\pages\login\login.html"*/'<!--\n  Generated template for the LoginPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>login</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <button ion-button large (click)="attemptLogin()"> Login With Google </button>\n\n  <div class="get-set-go">\n    <div class="main-1">\n      <h1>\n        Get Set Jo!\n      </h1>\n    </div>\n\n    <div class="main-2">\n      <h3>\n        Don\'t you worry, we got eyes on you :P\n      </h3>\n    </div>\n  </div>\n</ion-content>\n'/*ion-inline-end:"D:\gitrepos\ionic-3-firestore\src\pages\login\login.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3_ionic_angular__["f" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["g" /* NavParams */],
@@ -543,23 +572,23 @@ webpackEmptyAsyncContext.id = 218;
 
 var map = {
 	"../pages/biker/biker.module": [
-		549,
+		551,
 		4
 	],
 	"../pages/login/login.module": [
-		552,
+		553,
 		3
 	],
 	"../pages/manage-document/manage-document.module": [
-		550,
+		554,
 		0
 	],
 	"../pages/survey-each/survey-each.module": [
-		553,
+		552,
 		2
 	],
 	"../pages/survey/survey.module": [
-		551,
+		555,
 		1
 	]
 };
@@ -639,14 +668,14 @@ var RiderlocationProvider = (function () {
 
 /***/ }),
 
-/***/ 329:
+/***/ 331:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DatabaseProvider; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(277);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(279);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__(521);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__(523);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase__ = __webpack_require__(225);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_firebase__);
@@ -787,13 +816,13 @@ var DatabaseProvider = (function () {
 
 /***/ }),
 
-/***/ 330:
+/***/ 332:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(331);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(461);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(333);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(463);
 
 
 Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_1__app_module__["a" /* AppModule */]);
@@ -801,30 +830,30 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 
 /***/ }),
 
-/***/ 461:
+/***/ 463:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_each_question_each_question__ = __webpack_require__(462);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_components_module__ = __webpack_require__(471);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_each_question_each_question__ = __webpack_require__(464);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_components_module__ = __webpack_require__(473);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pages_survey_each_survey_each__ = __webpack_require__(176);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_survey_survey__ = __webpack_require__(178);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_login_login__ = __webpack_require__(179);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_platform_browser__ = __webpack_require__(53);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_common_http__ = __webpack_require__(277);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_platform_browser__ = __webpack_require__(54);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_common_http__ = __webpack_require__(279);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_ionic_angular__ = __webpack_require__(44);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ionic_native_splash_screen__ = __webpack_require__(317);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__ionic_native_status_bar__ = __webpack_require__(318);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__app_component__ = __webpack_require__(540);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_home_home__ = __webpack_require__(541);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_ionic_angular__ = __webpack_require__(45);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ionic_native_splash_screen__ = __webpack_require__(319);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__ionic_native_status_bar__ = __webpack_require__(320);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__app_component__ = __webpack_require__(542);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_home_home__ = __webpack_require__(543);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_biker_biker__ = __webpack_require__(177);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__agm_core__ = __webpack_require__(542);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__agm_core__ = __webpack_require__(544);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__ionic_native_geolocation__ = __webpack_require__(273);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__ionic_native_device_motion__ = __webpack_require__(274);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__ionic_native_device__ = __webpack_require__(275);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__config_env__ = __webpack_require__(547);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__config_env__ = __webpack_require__(549);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__angular_fire__ = __webpack_require__(66);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__providers_riderlocation_riderlocation__ = __webpack_require__(276);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__angular_fire_firestore__ = __webpack_require__(73);
@@ -832,14 +861,18 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__providers_auth_auth__ = __webpack_require__(65);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__providers_rider_rider__ = __webpack_require__(144);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__providers_survey_survey__ = __webpack_require__(140);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__providers_question_bank_question_bank__ = __webpack_require__(548);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__providers_question_bank_question_bank__ = __webpack_require__(550);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__ionic_native_text_to_speech__ = __webpack_require__(219);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__ionic_native_db_meter__ = __webpack_require__(277);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__ionic_native_insomnia__ = __webpack_require__(278);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
 
 
 
@@ -892,10 +925,10 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_8_ionic_angular__["d" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_11__app_component__["a" /* MyApp */], {}, {
                     links: [
                         { loadChildren: '../pages/biker/biker.module#BikerPageModule', name: 'BikerPage', segment: 'biker', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/manage-document/manage-document.module#ManageDocumentPageModule', name: 'manage-document', segment: 'manage-document', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/survey/survey.module#SurveyPageModule', name: 'SurveyPage', segment: 'survey', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/survey-each/survey-each.module#SurveyEachPageModule', name: 'SurveyEachPage', segment: 'survey-each', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/survey-each/survey-each.module#SurveyEachPageModule', name: 'SurveyEachPage', segment: 'survey-each', priority: 'low', defaultHistory: [] }
+                        { loadChildren: '../pages/manage-document/manage-document.module#ManageDocumentPageModule', name: 'manage-document', segment: 'manage-document', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/survey/survey.module#SurveyPageModule', name: 'SurveyPage', segment: 'survey', priority: 'low', defaultHistory: [] }
                     ]
                 }),
                 __WEBPACK_IMPORTED_MODULE_1__components_components_module__["a" /* ComponentsModule */]
@@ -917,12 +950,14 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_15__ionic_native_geolocation__["a" /* Geolocation */],
                 __WEBPACK_IMPORTED_MODULE_16__ionic_native_device_motion__["a" /* DeviceMotion */],
                 __WEBPACK_IMPORTED_MODULE_27__ionic_native_text_to_speech__["a" /* TextToSpeech */],
+                __WEBPACK_IMPORTED_MODULE_28__ionic_native_db_meter__["a" /* DBMeter */],
                 __WEBPACK_IMPORTED_MODULE_17__ionic_native_device__["a" /* Device */],
                 __WEBPACK_IMPORTED_MODULE_20__providers_riderlocation_riderlocation__["a" /* RiderlocationProvider */],
                 __WEBPACK_IMPORTED_MODULE_23__providers_auth_auth__["a" /* AuthProvider */],
                 __WEBPACK_IMPORTED_MODULE_24__providers_rider_rider__["a" /* RiderProvider */],
                 __WEBPACK_IMPORTED_MODULE_25__providers_survey_survey__["a" /* SurveyProvider */],
-                __WEBPACK_IMPORTED_MODULE_26__providers_question_bank_question_bank__["a" /* QuestionBankProvider */]
+                __WEBPACK_IMPORTED_MODULE_26__providers_question_bank_question_bank__["a" /* QuestionBankProvider */],
+                __WEBPACK_IMPORTED_MODULE_29__ionic_native_insomnia__["a" /* Insomnia */]
             ]
         })
     ], AppModule);
@@ -933,12 +968,12 @@ var AppModule = (function () {
 
 /***/ }),
 
-/***/ 462:
+/***/ 464:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EachQuestionComponent; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__models_question__ = __webpack_require__(463);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__models_question__ = __webpack_require__(465);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_text_to_speech__ = __webpack_require__(219);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -991,7 +1026,7 @@ var EachQuestionComponent = (function () {
     ], EachQuestionComponent.prototype, "answerFromUser", void 0);
     EachQuestionComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["m" /* Component */])({
-            selector: 'each-question',template:/*ion-inline-start:"D:\gitrepos\HI_app\src\components\each-question\each-question.html"*/'<div id="q-cont" *ngIf="question" >\n  <div class="slide">\n    <div class="question">\n      {{question.phrase}}\n    </div>\n    <div class="input-div" [ngSwitch]="question.input_type">\n\n        <div  class="options" *ngSwitchCase="\'option\'">\n\n            <div\n              class="op"\n              *ngFor="let eachAns of question.options"\n              (click)="optionClicked(eachAns.value)"\n            >\n              {{eachAns.value}}\n            </div>\n\n        </div>\n        <div *ngSwitchCase="\'text\'" class="text-input">\n          <input type="text" [(ngModel)]="textAnswer" (keydown.enter)="optionClicked(textAnswer)">\n          <button ion-button color="success" (click)="optionClicked(textAnswer)">Submit</button>\n\n        </div>\n\n        <div *ngSwitchDefault class="text-input">\n          <input type="text" [(ngModel)]="textAnswer" (keydown.enter)="optionClicked(textAnswer)">\n          <button ion-button color="success" (click)="optionClicked(textAnswer)">Submit</button>\n\n        </div>\n    </div>\n\n    <button ion-button color="light" (click)="optionClicked(\'skipped\')">Skip</button>\n  </div>\n</div>\n'/*ion-inline-end:"D:\gitrepos\HI_app\src\components\each-question\each-question.html"*/
+            selector: 'each-question',template:/*ion-inline-start:"D:\gitrepos\ionic-3-firestore\src\components\each-question\each-question.html"*/'<div id="q-cont" *ngIf="question" >\n  <div class="slide">\n    <div class="question">\n      {{question.phrase}}\n    </div>\n    <div class="input-div" [ngSwitch]="question.input_type">\n\n        <div  class="options" *ngSwitchCase="\'option\'">\n\n            <div\n              class="op"\n              *ngFor="let eachAns of question.options"\n              (click)="optionClicked(eachAns.value)"\n            >\n              {{eachAns.value}}\n            </div>\n\n        </div>\n        <div *ngSwitchCase="\'text\'" class="text-input">\n          <input type="text" [(ngModel)]="textAnswer" (keydown.enter)="optionClicked(textAnswer)">\n          <button ion-button color="success" (click)="optionClicked(textAnswer)">Submit</button>\n\n        </div>\n\n        <div *ngSwitchDefault class="text-input">\n          <input type="text" [(ngModel)]="textAnswer" (keydown.enter)="optionClicked(textAnswer)">\n          <button ion-button color="success" (click)="optionClicked(textAnswer)">Submit</button>\n\n        </div>\n    </div>\n\n    <button ion-button color="light" (click)="optionClicked(\'skipped\')">Skip</button>\n  </div>\n</div>\n'/*ion-inline-end:"D:\gitrepos\ionic-3-firestore\src\components\each-question\each-question.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__ionic_native_text_to_speech__["a" /* TextToSpeech */]])
     ], EachQuestionComponent);
@@ -1002,7 +1037,7 @@ var EachQuestionComponent = (function () {
 
 /***/ }),
 
-/***/ 463:
+/***/ 465:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1017,7 +1052,7 @@ var Question = (function () {
 
 /***/ }),
 
-/***/ 471:
+/***/ 473:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1048,7 +1083,7 @@ var ComponentsModule = (function () {
 
 /***/ }),
 
-/***/ 472:
+/***/ 474:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1275,7 +1310,7 @@ var questionBank = [
 
 /***/ }),
 
-/***/ 513:
+/***/ 515:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1294,7 +1329,7 @@ var Survey = (function () {
 
 /***/ }),
 
-/***/ 514:
+/***/ 516:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1309,16 +1344,16 @@ var HiLocation = (function () {
 
 /***/ }),
 
-/***/ 540:
+/***/ 542:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__pages_login_login__ = __webpack_require__(179);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(44);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_status_bar__ = __webpack_require__(318);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_splash_screen__ = __webpack_require__(317);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(45);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_status_bar__ = __webpack_require__(320);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_splash_screen__ = __webpack_require__(319);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1345,7 +1380,7 @@ var MyApp = (function () {
         });
     }
     MyApp = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["m" /* Component */])({template:/*ion-inline-start:"D:\gitrepos\HI_app\src\app\app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n'/*ion-inline-end:"D:\gitrepos\HI_app\src\app\app.html"*/
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["m" /* Component */])({template:/*ion-inline-start:"D:\gitrepos\ionic-3-firestore\src\app\app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n'/*ion-inline-end:"D:\gitrepos\ionic-3-firestore\src\app\app.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["h" /* Platform */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_4__ionic_native_splash_screen__["a" /* SplashScreen */]])
     ], MyApp);
@@ -1356,14 +1391,14 @@ var MyApp = (function () {
 
 /***/ }),
 
-/***/ 541:
+/***/ 543:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(44);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_database_database__ = __webpack_require__(329);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(45);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_database_database__ = __webpack_require__(331);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1522,7 +1557,7 @@ var HomePage = (function () {
     };
     HomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-home',template:/*ion-inline-start:"D:\gitrepos\HI_app\src\pages\home\home.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n      Cloud Firestore\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n\n  <button\n    ion-button\n    block\n    color=\'primary\'\n    (click)=\'addDocument()\'>\n    Add a new record\n  </button>\n\n  <ion-list>\n    <ion-item *ngFor=\'let location of locations\'>\n      <h2>{{ location.city }}</h2>\n      <p>\n        Population: {{ location.population}}<br>\n        Established: {{ location.established }}\n      </p>\n\n      <button\n        ion-button\n        color=\'secondary\'\n        (click)=\'updateDocument(location)\'>\n        Update this record\n      </button>\n\n      <button\n        ion-button\n        color=\'danger\'\n        (click)="deleteDocument(location)">\n        Delete this record\n      </button>\n    </ion-item>\n  </ion-list>\n  <!-- <page-biker></page-biker> -->\n  \n</ion-content>\n'/*ion-inline-end:"D:\gitrepos\HI_app\src\pages\home\home.html"*/
+            selector: 'page-home',template:/*ion-inline-start:"D:\gitrepos\ionic-3-firestore\src\pages\home\home.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n      Cloud Firestore\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n\n  <button\n    ion-button\n    block\n    color=\'primary\'\n    (click)=\'addDocument()\'>\n    Add a new record\n  </button>\n\n  <ion-list>\n    <ion-item *ngFor=\'let location of locations\'>\n      <h2>{{ location.city }}</h2>\n      <p>\n        Population: {{ location.population}}<br>\n        Established: {{ location.established }}\n      </p>\n\n      <button\n        ion-button\n        color=\'secondary\'\n        (click)=\'updateDocument(location)\'>\n        Update this record\n      </button>\n\n      <button\n        ion-button\n        color=\'danger\'\n        (click)="deleteDocument(location)">\n        Delete this record\n      </button>\n    </ion-item>\n  </ion-list>\n  <!-- <page-biker></page-biker> -->\n  \n</ion-content>\n'/*ion-inline-end:"D:\gitrepos\ionic-3-firestore\src\pages\home\home.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_2__providers_database_database__["a" /* DatabaseProvider */],
@@ -1535,7 +1570,7 @@ var HomePage = (function () {
 
 /***/ }),
 
-/***/ 547:
+/***/ 549:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1558,7 +1593,7 @@ var ENV = {
 
 /***/ }),
 
-/***/ 548:
+/***/ 550:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1689,5 +1724,5 @@ var AuthProvider = (function () {
 
 /***/ })
 
-},[330]);
+},[332]);
 //# sourceMappingURL=main.js.map

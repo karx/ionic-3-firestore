@@ -11,6 +11,8 @@ import { RiderlocationProvider } from '../../providers/riderlocation/riderlocati
 import { User } from 'firebase';
 import { DBMeter } from '@ionic-native/db-meter';
 import { Subscriber } from 'rxjs';
+import { Insomnia } from '@ionic-native/insomnia';
+
 /**
  * Generated class for the BikerPage page.
  *
@@ -34,6 +36,8 @@ export class BikerPage {
   public _currentLocn: HiLocation;
   public _user: User;
   private _COLL: string = 'HiLocations';
+  private n_data: any;
+  private n_data_old: any;
 
   private dbSubscription: any;
 
@@ -46,7 +50,8 @@ export class BikerPage {
     private riderLocationService: RiderlocationProvider,
     private authService: AuthProvider,
     private riderService: RiderProvider,
-    private dbMeter: DBMeter
+    private dbMeter: DBMeter,
+    private insomnia: Insomnia
     ) {
   }
 
@@ -57,6 +62,13 @@ export class BikerPage {
     if (this._user) {
       this._user_uid = this._user.uid;
     }
+
+    this.insomnia.keepAwake()
+    .then(
+      () => console.log('success'),
+      () => console.log('error')
+    );
+
     this.initMap();
     this.initDBListner();
   }
@@ -76,6 +88,8 @@ export class BikerPage {
         device_uuid : this.device.uuid,
         currentLocation: this._currentLocn
       });
+
+      this.n_data = dataToPush;
 
   }
 
@@ -105,6 +119,10 @@ export class BikerPage {
 
   }
   logNewGeoData(location: HiLocation) {
+    if (this.n_data !== this.n_data_old) {
+      location.n_data = this.n_data;
+    }
+    this.n_data_old = this.n_data;
     this.totalPath.push(location);
     this.riderLocationService.pushHiLocations(location);
 

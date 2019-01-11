@@ -5036,7 +5036,7 @@ ion-input :focus {
 * {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  -webkit-tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   -webkit-tap-highlight-color: transparent;
   -webkit-touch-callout: none;
 }
@@ -18857,23 +18857,23 @@ button.swiper-pagination-bullet {
 }
 
 .swiper-container-3d .swiper-slide-shadow-left {
-  background-image: -webkit-gradient(linear, right top, left top, from(rgba(0, 0, 0, 0.5)), to(transparent));
-  background-image: linear-gradient(to left, rgba(0, 0, 0, 0.5), transparent);
+  background-image: -webkit-gradient(linear, right top, left top, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0)));
+  background-image: linear-gradient(to left, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
 }
 
 .swiper-container-3d .swiper-slide-shadow-right {
-  background-image: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, 0.5)), to(transparent));
-  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), transparent);
+  background-image: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0)));
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
 }
 
 .swiper-container-3d .swiper-slide-shadow-top {
-  background-image: -webkit-gradient(linear, left bottom, left top, from(rgba(0, 0, 0, 0.5)), to(transparent));
-  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent);
+  background-image: -webkit-gradient(linear, left bottom, left top, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0)));
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
 }
 
 .swiper-container-3d .swiper-slide-shadow-bottom {
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(transparent));
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), transparent);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0)));
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
 }
 
 .swiper-container-coverflow .swiper-wrapper,
@@ -25755,4 +25755,34 @@ each-question .text-input {
 
 page-biker agm-map {
   height: 100%;
+}
+
+page-login .get-set-go {
+  width: 100%;
+  height: 50vh;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-align-content: space-around;
+  -ms-flex-line-pack: distribute;
+  align-content: space-around;
+  color: #5d5d5d;
+}
+
+page-login .get-set-go .main-1 {
+  font-size: 400;
+}
+
+page-login .get-set-go .main-2 {
+  font-size: 300;
 }
