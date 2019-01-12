@@ -333,6 +333,14 @@ var BikerPage = (function () {
         this.riderService.updateRiderLastLocation(this._user, location);
     };
     BikerPage.prototype.getHistoricalData = function () {
+        var _this = this;
+        if (this._user_uid) {
+            this.riderLocationService.getHiLocationsByUser(this._user_uid)
+                .subscribe(function (res) {
+                console.log(res);
+                _this.totalPath = res;
+            });
+        }
     };
     BikerPage.prototype.logNewGeoData = function (location) {
         if (this.n_data !== this.n_data_old) {
@@ -358,7 +366,7 @@ var BikerPage = (function () {
         this.getHistoricalData();
         watch.subscribe(function (data) {
             if (data && data.coords) {
-                console.log(" New Data ", data);
+                // console.log(" New Data ", data);
                 // this.deleteMarkers();
                 // this.updateGeolocation(this.device.uuid, data.coords.latitude,data.coords.longitude);
                 var returnLocation = _this.getHiLocation(data.coords);
@@ -379,18 +387,10 @@ var BikerPage = (function () {
         Object(__WEBPACK_IMPORTED_MODULE_3__angular_core__["m" /* Component */])({
             selector: 'page-biker',template:/*ion-inline-start:"D:\gitrepos\ionic-3-firestore\src\pages\biker\biker.html"*/'<!--\n  Generated template for the BikerPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title> Biker Page : {{_user?.displayName || _user?.email}}</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <ion-fab bottom right>\n    <button ion-fab mini (click)="startSurvey()">\n      <ion-icon name="add"></ion-icon>\n    </button>\n  </ion-fab>\n  <agm-map [latitude]="_currentLocn?.lat" [longitude]="_currentLocn?.lng">\n    <agm-marker *ngIf="_currentLocn" [latitude]="_currentLocn.lat" [longitude]="_currentLocn.lng"></agm-marker>\n    <agm-polyline>\n      <agm-polyline-point *ngFor="let hiLoc of totalPath" [latitude]="hiLoc.lat" [longitude]="hiLoc.lng">\n      </agm-polyline-point>\n    </agm-polyline>\n  </agm-map>\n</ion-content>\n'/*ion-inline-end:"D:\gitrepos\ionic-3-firestore\src\pages\biker\biker.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4_ionic_angular__["f" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["g" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_5__ionic_native_geolocation__["a" /* Geolocation */],
-            __WEBPACK_IMPORTED_MODULE_6__ionic_native_device_motion__["a" /* DeviceMotion */],
-            __WEBPACK_IMPORTED_MODULE_8__ionic_native_device__["a" /* Device */],
-            __WEBPACK_IMPORTED_MODULE_9__providers_riderlocation_riderlocation__["a" /* RiderlocationProvider */],
-            __WEBPACK_IMPORTED_MODULE_2__providers_auth_auth__["a" /* AuthProvider */],
-            __WEBPACK_IMPORTED_MODULE_1__providers_rider_rider__["a" /* RiderProvider */],
-            __WEBPACK_IMPORTED_MODULE_10__ionic_native_db_meter__["a" /* DBMeter */],
-            __WEBPACK_IMPORTED_MODULE_11__ionic_native_insomnia__["a" /* Insomnia */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["g" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["g" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_5__ionic_native_geolocation__["a" /* Geolocation */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__ionic_native_geolocation__["a" /* Geolocation */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_6__ionic_native_device_motion__["a" /* DeviceMotion */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__ionic_native_device_motion__["a" /* DeviceMotion */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_8__ionic_native_device__["a" /* Device */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_8__ionic_native_device__["a" /* Device */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_9__providers_riderlocation_riderlocation__["a" /* RiderlocationProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_9__providers_riderlocation_riderlocation__["a" /* RiderlocationProvider */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_2__providers_auth_auth__["a" /* AuthProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_auth_auth__["a" /* AuthProvider */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_1__providers_rider_rider__["a" /* RiderProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__providers_rider_rider__["a" /* RiderProvider */]) === "function" && _h || Object, typeof (_j = typeof __WEBPACK_IMPORTED_MODULE_10__ionic_native_db_meter__["a" /* DBMeter */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_10__ionic_native_db_meter__["a" /* DBMeter */]) === "function" && _j || Object, typeof (_k = typeof __WEBPACK_IMPORTED_MODULE_11__ionic_native_insomnia__["a" /* Insomnia */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_11__ionic_native_insomnia__["a" /* Insomnia */]) === "function" && _k || Object])
     ], BikerPage);
     return BikerPage;
+    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k;
 }());
 
 //# sourceMappingURL=biker.js.map
@@ -576,15 +576,15 @@ var map = {
 		4
 	],
 	"../pages/login/login.module": [
-		553,
+		554,
 		3
 	],
 	"../pages/manage-document/manage-document.module": [
-		554,
+		552,
 		0
 	],
 	"../pages/survey-each/survey-each.module": [
-		552,
+		553,
 		2
 	],
 	"../pages/survey/survey.module": [
@@ -651,7 +651,10 @@ var RiderlocationProvider = (function () {
         return this.riderLocationCollection.valueChanges();
     };
     RiderlocationProvider.prototype.getHiLocationsByUser = function (uid) {
-        return this.db.collection(this._COL, function (ref) { return ref.where('user_uid', '==', uid); })
+        return this.db.collection(this._COL, function (ref) {
+            return ref.where('user_uid', '==', uid).orderBy('timestamp')
+                .limit(500);
+        })
             .valueChanges();
     };
     RiderlocationProvider.prototype.pushHiLocations = function (location) {
@@ -659,9 +662,10 @@ var RiderlocationProvider = (function () {
     };
     RiderlocationProvider = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_fire_firestore__["a" /* AngularFirestore */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_fire_firestore__["a" /* AngularFirestore */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_fire_firestore__["a" /* AngularFirestore */]) === "function" && _a || Object])
     ], RiderlocationProvider);
     return RiderlocationProvider;
+    var _a;
 }());
 
 //# sourceMappingURL=riderlocation.js.map
@@ -925,9 +929,9 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_8_ionic_angular__["d" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_11__app_component__["a" /* MyApp */], {}, {
                     links: [
                         { loadChildren: '../pages/biker/biker.module#BikerPageModule', name: 'BikerPage', segment: 'biker', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/manage-document/manage-document.module#ManageDocumentPageModule', name: 'manage-document', segment: 'manage-document', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/survey-each/survey-each.module#SurveyEachPageModule', name: 'SurveyEachPage', segment: 'survey-each', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/manage-document/manage-document.module#ManageDocumentPageModule', name: 'manage-document', segment: 'manage-document', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/survey/survey.module#SurveyPageModule', name: 'SurveyPage', segment: 'survey', priority: 'low', defaultHistory: [] }
                     ]
                 }),

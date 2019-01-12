@@ -25,9 +25,12 @@ export class RiderlocationProvider {
     return this.riderLocationCollection.valueChanges();
   }
   getHiLocationsByUser(uid) {
-    return this.db.collection(this._COL, ref => ref.where('user_uid', '==', uid))
-      .valueChanges();
-
+    return this.db.collection(this._COL,
+                ref =>
+                    ref.where('user_uid', '==', uid).orderBy('timestamp')
+                    .limit(500)
+                    )
+        .valueChanges();
   }
 
   pushHiLocations(location: HiLocation) {

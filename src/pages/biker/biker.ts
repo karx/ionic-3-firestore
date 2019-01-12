@@ -116,7 +116,13 @@ export class BikerPage {
     this.riderService.updateRiderLastLocation(this._user, location);
   }
   getHistoricalData() {
-
+    if (this._user_uid) {
+      this.riderLocationService.getHiLocationsByUser(this._user_uid)
+        .subscribe( (res: any) => {
+          console.log(res);
+          this.totalPath = res;
+        })
+    }
   }
   logNewGeoData(location: HiLocation) {
     if (this.n_data !== this.n_data_old) {
@@ -145,11 +151,9 @@ export class BikerPage {
 
     this.getHistoricalData();
 
-
-
     watch.subscribe((data) => {
       if (data && data.coords) {
-        console.log(" New Data ", data);
+        // console.log(" New Data ", data);
         // this.deleteMarkers();
         // this.updateGeolocation(this.device.uuid, data.coords.latitude,data.coords.longitude);
         const returnLocation = this.getHiLocation(data.coords);
